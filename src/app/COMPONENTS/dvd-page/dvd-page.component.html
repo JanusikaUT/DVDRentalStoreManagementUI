@@ -1,0 +1,39 @@
+<!-- <div class="container mt-5">
+  <h2 class="text-center mb-4">Available DVDs</h2>
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4"> -->
+    <!-- Iterate over the DVDs to display them as cards -->
+    <!-- <div class="col" *ngFor="let dvd of dvds">
+      <div class="card h-100 shadow-sm">
+        <img src="{{ dvd.image }}" class="card-img-top" alt="{{ dvd.title }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ dvd.title }}</h5>
+          <p class="card-text">
+            <strong>Genre:</strong> {{ dvd.genre }}<br>
+            <strong>Director:</strong> {{ dvd.director }}
+          </p>
+        </div>
+        <div class="card-footer text-center">
+          <button class="btn btn-primary btn-sm" (click)="rentDvd(dvd)">Rent</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="container mt-4">
+  <h2>Available DVDs</h2>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let dvd of dvds">
+      <div class="card">
+        <img class="card-img-top" src="{{ dvd.image }}" alt="{{ dvd.title }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ dvd.title }}</h5>
+          <p class="card-text">{{ dvd.genre }}</p>
+          <button *ngIf="isLoggedIn && dvd.id !== undefined" class="btn btn-primary" (click)="rentDvd(dvd.id)">Rent</button>
+          <button *ngIf="!isLoggedIn" class="btn btn-secondary" disabled>Login to Rent</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

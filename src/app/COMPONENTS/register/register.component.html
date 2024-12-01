@@ -1,0 +1,36 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-lg border-dark">
+        <div class="card-header bg-dark text-light">
+          <h2 class="text-center">Register</h2>
+        </div>
+        <div class="card-body bg-secondary text-light">
+          <form (ngSubmit)="register()" #registerForm="ngForm">
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control border-danger" id="name" name="name" required>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input type="email" class="form-control border-danger" id="email" name="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control border-danger" id="password" name="password" required>
+            </div>
+            <div class="mb-3">
+              <label for="nic" class="form-label">NIC</label>
+              <input type="text" class="form-control border-danger" id="nic" name="nic" required>
+            </div>
+            <div class="mb-3">
+              <label for="phone" class="form-label">Phone (Optional)</label>
+              <input type="text" class="form-control border-danger" id="phone" name="phone">
+            </div>
+            <button type="submit" class="btn btn-dark w-100" [disabled]="!registerForm.form.valid">Register</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

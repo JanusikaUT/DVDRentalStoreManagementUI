@@ -1,0 +1,24 @@
+<div class="modal-overlay">
+    <div class="modal-content">
+      <h2>{{ isEditMode ? 'Edit DVD' : 'Add New DVD' }}</h2>
+      <form>
+        <label>
+          Title:
+          <input type="text" [(ngModel)]="dvd.title" name="title" required />
+        </label>
+        <label>
+          Genre:
+          <input type="text" [(ngModel)]="dvd.genre" name="genre" required />
+        </label>
+        <label>
+          Director:
+          <input type="text" [(ngModel)]="dvd.director" name="director" required />
+        </label>
+      </form>
+      <div class="modal-actions">
+        <button (click)="onSave()">Save</button>
+        <button (click)="onClose()">Cancel</button>
+      </div>
+    </div>
+  </div>
+  

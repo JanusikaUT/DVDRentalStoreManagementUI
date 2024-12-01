@@ -1,0 +1,20 @@
+/* General Styling */
+.landing-page {
+    min-height: 100vh;
+  }
+  
+  .banner-section {
+    background-image: url('https://via.placeholder.com/1200x400');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .card {
+    margin: 20px 0;
+    transition: transform 0.3s;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
