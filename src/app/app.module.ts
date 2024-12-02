@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './COMPONENTS/landing-page/landing-page.component';
 import { DvdPageComponent } from './COMPONENTS/dvd-page/dvd-page.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ManagerDashboardComponent } from './COMPONENTS/manager-dashboard/manager-dashboard.component';
 import { SummaryComponent } from './COMPONENTS/Manager/summary/summary.component';
@@ -15,6 +15,7 @@ import { CustomerDashboardComponent } from './COMPONENTS/customer-dashboard/cust
 import { LoginComponent } from './COMPONENTS/login/login.component';
 import { RegisterComponent } from './COMPONENTS/register/register.component';
 import { NavbarComponent } from './COMPONENTS/navbar/navbar.component';
+import { ManageCustomerComponent } from './COMPONENTS/Manager/manage-customer/manage-customer.component';
 
 @NgModule({
   declarations: [
@@ -28,13 +29,15 @@ import { NavbarComponent } from './COMPONENTS/navbar/navbar.component';
     CustomerDashboardComponent,
     LoginComponent,
     RegisterComponent,
-    NavbarComponent
+    NavbarComponent,
+    ManageCustomerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

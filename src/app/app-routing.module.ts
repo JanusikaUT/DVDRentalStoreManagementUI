@@ -8,9 +8,11 @@ import { ManageDvdComponent } from './COMPONENTS/Manager/manage-dvd/manage-dvd.c
 import { LoginComponent } from './COMPONENTS/login/login.component';
 import { RegisterComponent } from './COMPONENTS/register/register.component';
 import { CustomerDashboardComponent } from './COMPONENTS/customer-dashboard/customer-dashboard.component';
+import { ManageCustomerComponent } from './COMPONENTS/Manager/manage-customer/manage-customer.component';
 
 const routes: Routes = [
   {path:'',component:LandingPageComponent},
+  {path:'home',component:LandingPageComponent},
   { path: 'dvds', component: DvdPageComponent },
   { path: 'dvds', component: DvdPageComponent },
   { path: 'login', component: LoginComponent },
@@ -19,7 +21,7 @@ const routes: Routes = [
   { path: 'manager-dashboard', component: ManagerDashboardComponent, children:[
     { path: 'home', component: SummaryComponent },
     { path: 'manage-dvd', component: ManageDvdComponent },
-    // { path: 'manage-customer', component: ManageCustomerComponent },
+    { path: 'manage-customers', component: ManageCustomerComponent },
     // { path: 'manage-rental', component: ManageRentalComponent },
     // { path: 'reports', component: ReportsComponent },
   ]},

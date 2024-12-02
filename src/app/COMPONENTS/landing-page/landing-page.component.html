@@ -1,49 +1,147 @@
-
-  
-  <!-- Main Content Section -->
-  <div class="container mt-5">
-    <!-- Categories Section with Cards -->
-    <div class="row">
-      <!-- Action Category -->
-      <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4">
-        <div class="card bg-dark text-light border-danger">
-          <img src="../../../assets/images/movie1.jpg" class="card-img-top" alt="Action Movies">
-          <div class="card-body text-center">
-            <h5 class="card-title text-danger">Action</h5>
-            <p class="card-text">Thrilling action-packed movies.</p>
-          </div>
-        </div>
-      </div>
-  
-      <!-- Drama Category -->
-      <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4">
-        <div class="card bg-dark text-light border-danger">
-          <img src="src/assets/images/drama-movies.jpg" class="card-img-top" alt="Drama Movies">
-          <div class="card-body text-center">
-            <h5 class="card-title text-danger">Drama</h5>
-            <p class="card-text">Heartfelt and emotional stories.</p>
-          </div>
-        </div>
-      </div>
-  
-      <!-- Comedy Category -->
-      <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4">
-        <div class="card bg-dark text-light border-danger">
-          <img src="assets/images/comedy-movies.jpg" class="card-img-top" alt="Comedy Movies">
-          <div class="card-body text-center">
-            <h5 class="card-title text-danger">Comedy</h5>
-            <p class="card-text">Laugh-out-loud comedies for all ages.</p>
-          </div>
+<!-- Carousel -->
+<div id="landingPageCarousel" class="carousel slide" data-bs-ride="carousel" >
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="assets\Slider\1.jpg" class="d-block w-100" alt="Banner 1">
+      <div class="carousel-caption">
+        <!-- <h1>Featured Show</h1>
+          <button routerLink="/dvds" class="btn btn-primary btn-sm">Rent Now</button> -->
+        <!-- Call to Action Section (Banner) -->
+        <div class="text-center my-5 p-4 rounded shadow" style="background-color: rgba(255, 255, 255, 0.7);">
+          <h2 class="display-4 text-dark fw-bold">Browse Our Collection</h2>
+          <p class="lead text-dark">Find the latest DVDs to rent today!</p>
+          <a href="/dvds" class="btn btn-danger btn-lg shadow">Browse Now</a>
         </div>
       </div>
     </div>
-  
-    <!-- Call to Action Section (Banner) -->
-    <div class="text-center my-5">
-      <h2 class="display-4 text-dark">Browse Our Collection</h2>
-      <p class="lead text-dark">Find the latest DVDs to rent today!</p>
-      <a href="/dvds" class="btn btn-danger btn-lg">Browse Now</a>
+    <div class="carousel-item">
+      <img src="assets\Slider\VOYAGERS.jpg" class="d-block w-100" alt="Banner 2">
+      <div class="carousel-caption">
+        <!-- <h1>New Arrivals</h1>
+          <button routerLink="/dvds" class="btn btn-primary btn-sm">Discover</button> -->
+        <!-- Call to Action Section (Banner) -->
+        <div class="text-center my-5 p-4 rounded shadow" style="background-color: rgba(255, 255, 255, 0.7);">
+          <h2 class="display-4 text-dark fw-bold">Browse Our Collection</h2>
+          <p class="lead text-dark">Find the latest DVDs to rent today!</p>
+          <a href="/dvds" class="btn btn-danger btn-lg shadow">Browse Now</a>
+        </div>
+
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="assets\Slider\Please_dont_him_S1_1920x548_7x2.jpg" class="d-block w-100" alt="Banner 3">
+      <div class="carousel-caption">
+        <!-- <h1>Special Offers</h1>
+          <button  routerLink="/dvds" class="btn btn-primary btn-sm">Learn More</button> -->
+        <!-- Call to Action Section (Banner) -->
+        <div class="text-center my-5 p-4 rounded shadow" style="background-color: rgba(255, 255, 255, 0.7);">
+          <h2 class="display-4 text-dark fw-bold">Browse Our Collection</h2>
+          <p class="lead text-dark">Find the latest DVDs to rent today!</p>
+          <a href="/dvds" class="btn btn-danger btn-lg shadow">Browse Now</a>
+        </div>
+
+      </div>
     </div>
   </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#landingPageCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#landingPageCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+  <div class="d-flex justify-content-center align-items-center bg-dark py-3 rounded-0">
+    <!-- Static Genre Buttons -->
+    <button
+      type="button"
+      class="btn btn-outline-light me-2"
+      (click)="handleFilter('UCL 2024')"
+    >
+      UCL 2024
+    </button>
+    <button
+      type="button"
+      class="btn btn-outline-light me-2"
+      (click)="handleFilter('Free')"
+    >
+      Free
+    </button>
+    <button
+      type="button"
+      class="btn btn-outline-light me-2"
+      (click)="handleFilter('Horror')"
+    >
+      Horror
+    </button>
   
- 
+    <!-- Dropdown Button -->
+    <div class="dropdown">
+      <button
+        class="btn btn-outline-light dropdown-toggle"
+        type="button"
+        id="dropdownMenuButton"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        See More
+      </button>
+      <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton">
+        <li><a class="dropdown-item" href="#" (click)="handleFilter('Action')">Action</a></li>
+        <li><a class="dropdown-item" href="#" (click)="handleFilter('Drama')">Drama</a></li>
+        <li><a class="dropdown-item" href="#" (click)="handleFilter('Comedy')">Comedy</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- Display Filtered Movies -->
+  <div class="row">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4" *ngFor="let movie of filteredMovies">
+      <div class="card h-100 shadow-sm">
+        <img [src]="movie.imageUrl" class="card-img-top img-fluid" alt="{{ movie.title }}" />
+        <div class="card-body">
+          <h5 class="card-title text-truncate">{{ movie.title }}</h5>
+          <p class="card-text small">Genre: {{ movie.genre }}</p>
+          <p class="card-text small">Year: {{ movie.year }}</p>
+        </div>
+      </div>
+    </div>
+  </div>  
+
+</div>
+
+<!-- Main Content Section -->
+<!-- <div class="container mt-5">
+  <div class="row">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4">
+      <div class="card bg-dark text-light border-danger">
+        <img src="../../../assets/images/movie1.jpg" class="card-img-top" alt="Action Movies">
+        <div class="card-body text-center">
+          <h5 class="card-title text-danger">Action</h5>
+          <p class="card-text">Thrilling action-packed movies.</p>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4">
+      <div class="card bg-dark text-light border-danger">
+        <img src="src/assets/images/drama-movies.jpg" class="card-img-top" alt="Drama Movies">
+        <div class="card-body text-center">
+          <h5 class="card-title text-danger">Drama</h5>
+          <p class="card-text">Heartfelt and emotional stories.</p>
+        </div>
+      </div>
+    </div>
+
+   
+    <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4">
+      <div class="card bg-dark text-light border-danger">
+        <img src="assets/images/comedy-movies.jpg" class="card-img-top" alt="Comedy Movies">
+        <div class="card-body text-center">
+          <h5 class="card-title text-danger">Comedy</h5>
+          <p class="card-text">Laugh-out-loud comedies for all ages.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

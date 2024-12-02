@@ -1,34 +1,65 @@
-<div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <div class="card shadow-lg border-dark">
-        <div class="card-header bg-dark text-light">
-          <h2 class="text-center">Register</h2>
-        </div>
-        <div class="card-body bg-secondary text-light">
-          <form (ngSubmit)="register()" #registerForm="ngForm">
-            <div class="mb-3">
-              <label for="name" class="form-label">Name</label>
-              <input type="text" class="form-control border-danger" id="name" name="name" required>
-            </div>
-            <div class="mb-3">
-              <label for="email" class="form-label">Email address</label>
-              <input type="email" class="form-control border-danger" id="email" name="email" required>
-            </div>
-            <div class="mb-3">
-              <label for="password" class="form-label">Password</label>
-              <input type="password" class="form-control border-danger" id="password" name="password" required>
-            </div>
-            <div class="mb-3">
-              <label for="nic" class="form-label">NIC</label>
-              <input type="text" class="form-control border-danger" id="nic" name="nic" required>
-            </div>
-            <div class="mb-3">
-              <label for="phone" class="form-label">Phone (Optional)</label>
-              <input type="text" class="form-control border-danger" id="phone" name="phone">
-            </div>
-            <button type="submit" class="btn btn-dark w-100" [disabled]="!registerForm.form.valid">Register</button>
-          </form>
+<div class="d-flex justify-content-center align-items-center vh-100 bg-dark text-light">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-4 col-md-6 col-sm-8">
+        <div class="card shadow-lg border-0 bg-black">
+          <div class="card-header text-center border-0">
+            <h2 class="text-white">Register</h2> <!-- White text for visibility -->
+          </div>
+          <div class="card-body">
+            <form (ngSubmit)="register()" #registerForm="ngForm">
+              <div class="mb-3">
+                <label for="name" class="form-label text-light">Name</label> <!-- Light text color -->
+                <input 
+                  type="text" 
+                  class="form-control bg-dark text-light border-light" 
+                  id="name" 
+                  name="name" 
+                  required>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label text-light">Email address</label> <!-- Light text color -->
+                <input 
+                  type="email" 
+                  class="form-control bg-dark text-light border-light" 
+                  id="email" 
+                  name="email" 
+                  required>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label text-light">Password</label> <!-- Light text color -->
+                <input 
+                  type="password" 
+                  class="form-control bg-dark text-light border-light" 
+                  id="password" 
+                  name="password" 
+                  required>
+              </div>
+              <div class="mb-3">
+                <label for="nic" class="form-label text-light">NIC</label> <!-- Light text color -->
+                <input 
+                  type="text" 
+                  class="form-control bg-dark text-light border-light" 
+                  id="nic" 
+                  name="nic" 
+                  required>
+              </div>
+              <div class="mb-3">
+                <label for="phone" class="form-label text-light">Phone (Optional)</label> <!-- Light text color -->
+                <input 
+                  type="text" 
+                  class="form-control bg-dark text-light border-light" 
+                  id="phone" 
+                  name="phone">
+              </div>
+              <button 
+                type="submit" 
+                class="btn btn-danger w-100 py-2" 
+                [disabled]="!registerForm.form.valid">
+                Register
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </div>

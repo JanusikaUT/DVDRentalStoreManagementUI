@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './customer-dashboard.component.css'
 })
 export class CustomerDashboardComponent {
-
+// Array to hold overdue notifications
+overdueNotifications: string[] = [
+  'Movie "Inception" is overdue by 2 days.',
+  'Movie "Avatar" is overdue by 1 day.'
+];
 }

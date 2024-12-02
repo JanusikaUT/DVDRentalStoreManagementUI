@@ -4,17 +4,25 @@
   }
   
   .banner-section {
-    background-image: url('https://via.placeholder.com/1200x400');
+    background-image: url('https://via.placeholder.com/1000x200');
     background-size: cover;
     background-position: center;
   }
   
   .card {
-    margin: 20px 0;
+    margin: 20px 20px 20px 50px;
     transition: transform 0.3s;
   }
-  
+  .card-body{
+    height: 100px;
+  }
   .card:hover {
     transform: scale(1.05);
   }
+  
+  .card-img-top {
+    height: 300px; /* Set a fixed height */
+    object-fit: cover;
+  }
+
   
