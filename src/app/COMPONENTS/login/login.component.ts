@@ -17,7 +17,9 @@ export class LoginComponent implements OnInit{
       (response: any) => {
         localStorage.setItem('token', response.token); // Save token
         alert('Login successful!');
-        this.router.navigate(['/dashboard']); // Redirect to dashboard
+        const role = this.authService.getUserRole();
+        //this.router.navigate(['/dashboard']); 
+        this.router.navigate([role === 'Manager' ? '/manager-dashboard' : '/customer-dashboard']);
       },
       (error) => {
         alert('Login failed. Invalid credentials.');

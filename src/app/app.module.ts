@@ -16,6 +16,7 @@ import { LoginComponent } from './COMPONENTS/login/login.component';
 import { RegisterComponent } from './COMPONENTS/register/register.component';
 import { NavbarComponent } from './COMPONENTS/navbar/navbar.component';
 import { ManageCustomerComponent } from './COMPONENTS/Manager/manage-customer/manage-customer.component';
+import { NotificationsComponent } from './COMPONENTS/notifications/notifications.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ManageCustomerComponent } from './COMPONENTS/Manager/manage-customer/ma
     LoginComponent,
     RegisterComponent,
     NavbarComponent,
-    ManageCustomerComponent
+    ManageCustomerComponent,
+    NotificationsComponent
   ],
   imports: [
     BrowserModule,

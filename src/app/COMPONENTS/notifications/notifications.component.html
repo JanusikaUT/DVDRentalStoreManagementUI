@@ -1,0 +1,7 @@
+<div class="container">
+    <h2>Notifications</h2>
+    <div *ngFor="let notification of notifications" class="alert alert-warning">
+      <p>{{ notification.message }} ({{ notification.timestamp }})</p>
+    </div>
+  </div>
+  

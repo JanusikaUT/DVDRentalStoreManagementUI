@@ -81,13 +81,37 @@ export class DvdPageComponent implements OnInit{
   }
 
   // Function to rent a DVD
+  // rentDvd(id: number): void {
+  //   if (!this.isLoggedIn) {
+  //     this.router.navigate(['/login']);
+  //   } else {
+  //     this.dvdService.rentDvd(id).subscribe(() => {
+  //       alert('DVD rented successfully!');
+  //     });
+  //   }
+  // }  
   rentDvd(id: number): void {
-    if (!this.isLoggedIn) {
-      this.router.navigate(['/login']);
-    } else {
-      this.dvdService.rentDvd(id).subscribe(() => {
+    const customerId = 1; // Replace with actual customer ID
+    this.dvdService.rentDvd(id, customerId).subscribe(
+      () => {
         alert('DVD rented successfully!');
-      });
-    }
-  }  
+        this.getDvds(); // Refresh the list if needed
+      },
+      (error) => {
+        console.error('Error renting DVD:', error);
+        alert('Failed to rent DVD.');
+      }
+    );
+  }
+  getDvds(): void {
+    this.dvdService.getDvds().subscribe(
+      (data: Dvd[]) => {
+        this.dvds = data; // Assign fetched DVDs to the component's list
+      },
+      (error) => {
+        console.error('Error fetching DVDs:', error);
+      }
+    );
+  }
+  
 }

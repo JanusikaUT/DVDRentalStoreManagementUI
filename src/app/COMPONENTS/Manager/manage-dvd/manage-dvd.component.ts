@@ -38,9 +38,24 @@ export class ManageDvdComponent implements OnInit{
     }
   }
 
+  // saveDvd(dvd: any) {
+  //   if (this.isEditMode) {
+  //     this.dvdService.updateDvd(dvd).subscribe((updatedDvd) => {
+  //       const index = this.dvds.findIndex((item) => item.id === updatedDvd.id);
+  //       if (index > -1) this.dvds[index] = updatedDvd;
+  //       this.showModal = false;
+  //     });
+  //   } else {
+  //     this.dvdService.addDvd(dvd).subscribe((newDvd) => {
+  //       this.dvds.push(newDvd);
+  //       this.showModal = false;
+  //     });
+  //   }
+  // }
+
   saveDvd(dvd: any) {
     if (this.isEditMode) {
-      this.dvdService.updateDvd(dvd).subscribe((updatedDvd) => {
+      this.dvdService.updateDvd(dvd.id, dvd).subscribe((updatedDvd) => {
         const index = this.dvds.findIndex((item) => item.id === updatedDvd.id);
         if (index > -1) this.dvds[index] = updatedDvd;
         this.showModal = false;
@@ -52,6 +67,7 @@ export class ManageDvdComponent implements OnInit{
       });
     }
   }
+  
 
   closeModal() {
     this.showModal = false;

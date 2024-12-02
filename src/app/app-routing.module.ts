@@ -9,22 +9,33 @@ import { LoginComponent } from './COMPONENTS/login/login.component';
 import { RegisterComponent } from './COMPONENTS/register/register.component';
 import { CustomerDashboardComponent } from './COMPONENTS/customer-dashboard/customer-dashboard.component';
 import { ManageCustomerComponent } from './COMPONENTS/Manager/manage-customer/manage-customer.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {path:'',component:LandingPageComponent},
+  { path: 'login', component: LoginComponent },
+
   {path:'home',component:LandingPageComponent},
   { path: 'dvds', component: DvdPageComponent },
   { path: 'dvds', component: DvdPageComponent },
-  { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'customer-dashboard', component: CustomerDashboardComponent },
-  { path: 'manager-dashboard', component: ManagerDashboardComponent, children:[
-    { path: 'home', component: SummaryComponent },
-    { path: 'manage-dvd', component: ManageDvdComponent },
-    { path: 'manage-customers', component: ManageCustomerComponent },
+  { 
+    path: 'customer-dashboard',
+    component: CustomerDashboardComponent,
+    canActivate: [AuthGuard], 
+  },
+  { 
+    path: 'manager-dashboard',
+    component: ManagerDashboardComponent,
+    canActivate: [AuthGuard],
+    children:[
+              { path: 'home', component: SummaryComponent },
+              { path: 'manage-dvd', component: ManageDvdComponent },
+              { path: 'manage-customers', component: ManageCustomerComponent },
     // { path: 'manage-rental', component: ManageRentalComponent },
     // { path: 'reports', component: ReportsComponent },
-  ]},
+    ]
+  },
   // { path: 'logout', component: LogoutComponent },
 ];
 
