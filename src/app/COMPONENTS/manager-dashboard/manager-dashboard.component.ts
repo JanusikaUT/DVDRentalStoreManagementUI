@@ -22,9 +22,9 @@ export class ManagerDashboardComponent {
       this.newDvd.title &&
       this.newDvd.genre &&
       this.newDvd.director &&
-      this.newDvd.image
+      this.newDvd.image 
     ) {
-      this.dvdService.addDvd({ ...this.newDvd });
+      // this.dvdService.addDvd({ ...this.newDvd });
       alert('New DVD added successfully!');
       this.newDvd = { title: '', genre: '', director: '', image: '' }; // Reset the form
     } else {

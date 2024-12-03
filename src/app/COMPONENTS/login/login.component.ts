@@ -1,29 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from '../../SERVICES/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css'],
 })
-export class LoginComponent implements OnInit{
+export class LoginComponent {
   email: string = '';
   password: string = '';
+
   constructor(private authService: AuthService, private router: Router) {}
-  ngOnInit(): void {}
-  login(): void {
+
+  onLogin(): void {
     this.authService.login(this.email, this.password).subscribe(
       (response: any) => {
-        localStorage.setItem('token', response.token); // Save token
+        localStorage.setItem('token', response.token);
         alert('Login successful!');
         const role = this.authService.getUserRole();
-        //this.router.navigate(['/dashboard']); 
         this.router.navigate([role === 'Manager' ? '/manager-dashboard' : '/customer-dashboard']);
       },
       (error) => {
-        alert('Login failed. Invalid credentials.');
-        console.error(error);
+        console.error('Login failed:', error);
+        alert('Invalid email or password.');
       }
     );
   }

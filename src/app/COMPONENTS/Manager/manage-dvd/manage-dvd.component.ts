@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DvdService } from '../../../SERVICES/dvd.service';
+import { Dvd, DvdService } from '../../../SERVICES/dvd.service';
 
 @Component({
   selector: 'app-manage-dvd',
@@ -7,14 +7,17 @@ import { DvdService } from '../../../SERVICES/dvd.service';
   styleUrl: './manage-dvd.component.css'
 })
 export class ManageDvdComponent implements OnInit{
-  dvds: any[] = [];
+  dvds: Dvd[] = [];
   showModal = false;
   selectedDvd: any = {};
   isEditMode = false;
   constructor(private dvdService: DvdService) {}
 
   ngOnInit() {
-    this.dvdService.getDvds().subscribe((data) => (this.dvds = data));
+    this.dvdService.getDvds().subscribe(
+      (data) =>{
+      (this.dvds = data)}
+    );
   }
 
   openAddDvdModal() {

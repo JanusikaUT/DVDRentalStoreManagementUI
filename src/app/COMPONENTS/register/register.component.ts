@@ -7,16 +7,16 @@ import { CustomerService } from '../../SERVICES/customer.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css'
+  styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit{
+export class RegisterComponent implements OnInit {
   name: string = '';
   email: string = '';
   password: string = '';
   nic: string = '';
   phone: string = '';
 
-  constructor(private authService: AuthService, private router: Router,private customerService: CustomerService) {}
+  constructor(private authService: AuthService, private router: Router, private customerService: CustomerService) {}
 
   ngOnInit(): void {}
 
@@ -33,7 +33,7 @@ export class RegisterComponent implements OnInit{
 
     this.authService.register(user).subscribe(
       (response) => {
-        // Add the registered customer to the table
+        // Add the registered customer to the table without validation
         this.customerService.addCustomer(user).subscribe(() => {
           alert('Registration successful!');
           this.router.navigate(['/login']);
@@ -41,14 +41,8 @@ export class RegisterComponent implements OnInit{
       },
       (error: HttpErrorResponse) => {
         console.error('Error Response:', error);
-        if (error.error?.errors) {
-          console.log('Validation errors:', error.error.errors);
-          alert('There are validation errors, check the console for details.');
-        } else {
-          alert(error.error?.message || 'An unknown error occurred.');
-        }
+        alert(error.error?.message || 'An unknown error occurred.');
       }
     );
   }
-
 }
