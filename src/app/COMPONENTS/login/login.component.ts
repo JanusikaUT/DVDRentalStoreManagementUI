@@ -19,6 +19,7 @@ export class LoginComponent {
         localStorage.setItem('token', response.token);
         alert('Login successful!');
         const role = this.authService.getUserRole();
+        console.log('User role:', role);
         this.router.navigate([role === 'Manager' ? '/manager-dashboard' : '/customer-dashboard']);
       },
       (error) => {

@@ -4,7 +4,7 @@ import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 export interface Customer {
-  customerId?: number;
+  customerId: number;
   name: string;
   email: string;
   nic: string;
@@ -55,6 +55,10 @@ export class CustomerService {
   //     return of(result as T);  // Keep the app running by returning a default result
   //   };
   // }
+
+  getusers(){
+    return this.http.get<Customer[]>('')
+  }
   getCustomers(): Observable<Customer[]> {
     return this.http.get<Customer[]>(this.apiUrl);
   }
@@ -63,11 +67,11 @@ export class CustomerService {
     return this.http.post<Customer>(this.apiUrl, customer);
   }
 
-  updateCustomer(id: number, customer: Customer): Observable<Customer> {
+  updateCustomer(id: number, customer: Customer){
     return this.http.put<Customer>(`${this.apiUrl}/${id}`, customer);
   }
 
-  deleteCustomer(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  deleteCustomer(id: number){
+    return this.http.delete('http://localhost:5062/api/Customers/'+id);
   }
 }

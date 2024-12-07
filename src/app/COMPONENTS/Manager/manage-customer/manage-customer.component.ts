@@ -18,6 +18,7 @@ export class ManageCustomerComponent implements OnInit {
     private fb: FormBuilder
   ) {
     this.customerForm = this.fb.group({
+      id:[],
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       nic: ['', Validators.required],
@@ -64,6 +65,7 @@ export class ManageCustomerComponent implements OnInit {
   }
 
   deleteCustomer(id: number): void {
+    console.log(id)
     if (confirm('Are you sure you want to delete this customer?')) {
       this.customerService.deleteCustomer(id).subscribe(() => {
         this.fetchCustomers();

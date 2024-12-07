@@ -3,6 +3,7 @@ import { AuthService } from '../../SERVICES/auth.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { CustomerService } from '../../SERVICES/customer.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -15,34 +16,29 @@ export class RegisterComponent implements OnInit {
   password: string = '';
   nic: string = '';
   phone: string = '';
+  role:string = '';
 
   constructor(private authService: AuthService, private router: Router, private customerService: CustomerService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void{}
 
-  register(): void {
-    const user = {
-      name: this.name,
-      email: this.email,
-      password: this.password,
-      nic: this.nic,
-      phone: this.phone,
-    };
+  
+  // Register function
+  register(registerForm: NgForm) {
+    if (registerForm.valid) {
+      const formData = registerForm.value; // Collect form data
 
-    console.log('Payload:', user); // Debug payload 
-
-    this.authService.register(user).subscribe(
-      (response) => {
-        // Add the registered customer to the table without validation
-        this.customerService.addCustomer(user).subscribe(() => {
-          alert('Registration successful!');
-          this.router.navigate(['/login']);
-        });
-      },
-      (error: HttpErrorResponse) => {
-        console.error('Error Response:', error);
-        alert(error.error?.message || 'An unknown error occurred.');
-      }
-    );
+      // You can send this data to a backend API, e.g., a POST request to register a user
+      this.authService.register(formData).subscribe(
+        response => {
+          // Handle success response
+          console.log('Registration successful', response);
+        },
+        error => {
+          // Handle error response
+          console.error('Registration failed', error);
+        }
+      );
+    }
   }
 }

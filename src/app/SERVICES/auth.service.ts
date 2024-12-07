@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -15,7 +16,7 @@ export class AuthService {
     return this.http.post(`${this.apiUrl}/login`, { email, password }, { headers });
   }
 
-  register(user: any): Observable<any> {
+  register(user: NgForm): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.post(`${this.apiUrl}/register`, user, { headers });
   }
@@ -37,6 +38,8 @@ export class AuthService {
     }
     return '';
   }
+
+  
 
   logout(): void {
     localStorage.removeItem('token');
