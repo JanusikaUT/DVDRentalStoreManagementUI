@@ -21,6 +21,15 @@ export class LoginComponent {
         const role = this.authService.getUserRole();
         console.log('User role:', role);
         this.router.navigate([role === 'Manager' ? '/manager-dashboard' : '/customer-dashboard']);
+        // if (role === 'Manager') {
+        //   this.router.navigate(['/manager-dashboard']);
+        // } else if (role === 'Customer') {
+        //   this.router.navigate(['/customer-dashboard']);
+        // } else {
+        //   alert('Role not recognized. Please contact support.');
+        //   console.error('Unknown role:', role);
+        //   this.authService.logout(); // Clear token if role is invalid
+        // }
       },
       (error) => {
         console.error('Login failed:', error);
