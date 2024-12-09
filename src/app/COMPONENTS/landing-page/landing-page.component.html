@@ -1,3 +1,4 @@
+
 <!-- Carousel -->
 <div id="landingPageCarousel" class="carousel slide" data-bs-ride="carousel" >
   <div class="carousel-inner">
@@ -7,7 +8,7 @@
         <!-- <h1>Featured Show</h1>
           <button routerLink="/dvds" class="btn btn-primary btn-sm">Rent Now</button> -->
         <!-- Call to Action Section (Banner) -->
-        <div class="text-center my-5 p-4 rounded shadow" style="background-color: rgba(255, 255, 255, 0.7);">
+        <div class="text-center my-5 p-3 rounded shadow" >
           <h2 class="display-4 text-dark fw-bold">Browse Our Collection</h2>
           <p class="lead text-dark">Find the latest DVDs to rent today!</p>
           <a href="/dvds" class="btn btn-danger btn-lg shadow">Browse Now</a>
@@ -20,7 +21,7 @@
         <!-- <h1>New Arrivals</h1>
           <button routerLink="/dvds" class="btn btn-primary btn-sm">Discover</button> -->
         <!-- Call to Action Section (Banner) -->
-        <div class="text-center my-5 p-4 rounded shadow" style="background-color: rgba(255, 255, 255, 0.7);">
+        <div class="text-center my-5 p-4 rounded shadow" >
           <h2 class="display-4 text-dark fw-bold">Browse Our Collection</h2>
           <p class="lead text-dark">Find the latest DVDs to rent today!</p>
           <a href="/dvds" class="btn btn-danger btn-lg shadow">Browse Now</a>
@@ -34,7 +35,7 @@
         <!-- <h1>Special Offers</h1>
           <button  routerLink="/dvds" class="btn btn-primary btn-sm">Learn More</button> -->
         <!-- Call to Action Section (Banner) -->
-        <div class="text-center my-5 p-4 rounded shadow" style="background-color: rgba(255, 255, 255, 0.7);">
+        <div class="text-center my-5 p-4 rounded shadow hero-content" >
           <h2 class="display-4 text-dark fw-bold">Browse Our Collection</h2>
           <p class="lead text-dark">Find the latest DVDs to rent today!</p>
           <a href="/dvds" class="btn btn-danger btn-lg shadow">Browse Now</a>
@@ -51,7 +52,7 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
-  <div class="d-flex justify-content-center align-items-center bg-dark py-3 rounded-0">
+  <div class="filter d-flex justify-content-center align-items-center  py-3 rounded-0">
     <!-- Static Genre Buttons -->
     <button
       type="button"
@@ -102,6 +103,8 @@
           <h5 class="card-title text-truncate">{{ movie.title }}</h5>
           <p class="card-text small">Genre: {{ movie.genre }}</p>
           <p class="card-text small">Year: {{ movie.year }}</p>
+          <p class="card-text small">Year: {{ movie.year }}</p>
+
         </div>
       </div>
     </div>
