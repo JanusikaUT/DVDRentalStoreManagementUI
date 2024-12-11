@@ -11,18 +11,21 @@
   } */
   
   .card {
-    margin: 20px 20px 20px 50px;
+    /* margin: 20px 20px 20px 50px; */
     transition: transform 0.3s;
   }
   .card-body{
-    height: 100px;
+    color: #0a0a0a;
+  background-color: rgb(126, 125, 125);
+  border-radius: 5px;
   }
   .card:hover {
     transform: scale(1.05);
   }
   
   .card-img-top {
-    height: 300px; /* Set a fixed height */
+    width: 100%;
+    height: 200px;
     object-fit: cover;
   }
 
@@ -34,5 +37,63 @@
 .filter button{
   border-color: black;
   color: brown;
-  border-radius: 100%;
+  border-radius: 20px;
+}
+
+/* Custom Styles */
+body {
+  background-color: rgb(29, 2, 2);
+  color: white;
+}
+.navbar {
+  background-color: transparent;
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+}
+/*.navbar-brand {
+  /* font-size: 2rem;
+  color: red !important; */
+  
+
+.carousel-item {
+  height: 100vh;
+  background-color: #350d12;
+  opacity: 0.9;
+}
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-family:cursive;
+  font-size: xx-large;
+}
+.carousel-control-prev, .carousel-control-next {
+  color: white;
+}
+
+.landing{
+  background-image: url(../../../../public/assets/Carousel/hulu-movies.jpg);
+  object-fit:fill; 
+}
+
+.carousel-item{
+  background-color: rgb(10, 8, 19);
+  z-index:2;
+}
+
+/* .container{
+  background-color: #0a0106;
+  color: #fff;
+} */
+
+.main{
+  background-color: #0a0106;
+  color: white;
+}
+
+.home{
+  background-color: #0a0106;
 }

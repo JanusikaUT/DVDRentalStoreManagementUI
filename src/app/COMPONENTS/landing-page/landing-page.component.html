@@ -1,119 +1,87 @@
+<div class="home">
+<div class="landing">
+  <!-- Nav Bar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="logo.png" alt=""></a>
+      <button class="btn btn-outline-light" type="button" routerLink="/login">Sign In</button>
+    </div>
+  </nav>
 
-<!-- Carousel -->
-<div id="landingPageCarousel" class="carousel slide" data-bs-ride="carousel" >
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="assets\Slider\1.jpg" class="d-block w-100" alt="Banner 1">
-      <div class="carousel-caption">
-        <!-- <h1>Featured Show</h1>
-          <button routerLink="/dvds" class="btn btn-primary btn-sm">Rent Now</button> -->
-        <!-- Call to Action Section (Banner) -->
-        <div class="text-center my-5 p-3 rounded shadow" >
-          <h2 class="display-4 text-dark fw-bold">Browse Our Collection</h2>
-          <p class="lead text-dark">Find the latest DVDs to rent today!</p>
-          <a href="/dvds" class="btn btn-danger btn-lg shadow">Browse Now</a>
+  <!-- Carousel -->
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="carousel-caption">
+          <h1>Unlimited movies,TV shows, and more</h1>
+          <p>Starts at USD 2.99. Cancel anytime.</p>
+          <button class="btn btn-primary btn-lg">RENT DVDs</button>
         </div>
       </div>
     </div>
-    <div class="carousel-item">
-      <img src="assets\Slider\VOYAGERS.jpg" class="d-block w-100" alt="Banner 2">
-      <div class="carousel-caption">
-        <!-- <h1>New Arrivals</h1>
-          <button routerLink="/dvds" class="btn btn-primary btn-sm">Discover</button> -->
-        <!-- Call to Action Section (Banner) -->
-        <div class="text-center my-5 p-4 rounded shadow" >
-          <h2 class="display-4 text-dark fw-bold">Browse Our Collection</h2>
-          <p class="lead text-dark">Find the latest DVDs to rent today!</p>
-          <a href="/dvds" class="btn btn-danger btn-lg shadow">Browse Now</a>
-        </div>
-
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="assets\Slider\Please_dont_him_S1_1920x548_7x2.jpg" class="d-block w-100" alt="Banner 3">
-      <div class="carousel-caption">
-        <!-- <h1>Special Offers</h1>
-          <button  routerLink="/dvds" class="btn btn-primary btn-sm">Learn More</button> -->
-        <!-- Call to Action Section (Banner) -->
-        <div class="text-center my-5 p-4 rounded shadow hero-content" >
-          <h2 class="display-4 text-dark fw-bold">Browse Our Collection</h2>
-          <p class="lead text-dark">Find the latest DVDs to rent today!</p>
-          <a href="/dvds" class="btn btn-danger btn-lg shadow">Browse Now</a>
-        </div>
-
-      </div>
-    </div>
+    <!-- You can add more carousel items if needed -->
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#landingPageCarousel" data-bs-slide="prev">
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
   </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#landingPageCarousel" data-bs-slide="next">
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
-  <div class="filter d-flex justify-content-center align-items-center  py-3 rounded-0">
-    <!-- Static Genre Buttons -->
-    <button
-      type="button"
-      class="btn btn-outline-light me-2"
-      (click)="handleFilter('UCL 2024')"
-    >
-      UCL 2024
-    </button>
-    <button
-      type="button"
-      class="btn btn-outline-light me-2"
-      (click)="handleFilter('Free')"
-    >
-      Free
-    </button>
-    <button
-      type="button"
-      class="btn btn-outline-light me-2"
-      (click)="handleFilter('Horror')"
-    >
-      Horror
-    </button>
-  
-    <!-- Dropdown Button -->
-    <div class="dropdown">
-      <button
-        class="btn btn-outline-light dropdown-toggle"
-        type="button"
-        id="dropdownMenuButton"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-      >
-        See More
-      </button>
-      <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton">
-        <li><a class="dropdown-item" href="#" (click)="handleFilter('Action')">Action</a></li>
-        <li><a class="dropdown-item" href="#" (click)="handleFilter('Drama')">Drama</a></li>
-        <li><a class="dropdown-item" href="#" (click)="handleFilter('Comedy')">Comedy</a></li>
-      </ul>
-    </div>
-  </div>
-  <!-- Display Filtered Movies -->
-  <div class="row">
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4" *ngFor="let movie of filteredMovies">
-      <div class="card h-100 shadow-sm">
-        <img [src]="movie.imageUrl" class="card-img-top img-fluid" alt="{{ movie.title }}" />
-        <div class="card-body">
-          <h5 class="card-title text-truncate">{{ movie.title }}</h5>
-          <p class="card-text small">Genre: {{ movie.genre }}</p>
-          <p class="card-text small">Year: {{ movie.year }}</p>
-          <p class="card-text small">Year: {{ movie.year }}</p>
+</div>
+<div class="main">
+  <div class="container">
+    <h2 class="text-center mt-4">Trending Now</h2>
 
+    <!-- Filter -->
+    <div class="filter d-flex justify-content-center align-items-center  py-3 rounded-0">
+      <!-- Static Genre Buttons -->
+      <button type="button" class="btn btn-outline-light me-2" (click)="handleFilter('Comedy')">
+        Comedy
+      </button>
+      <button type="button" class="btn btn-outline-light me-2" (click)="handleFilter('Free')">
+        Free
+      </button>
+      <button type="button" class="btn btn-outline-light me-2" (click)="handleFilter('Horror')">
+        Horror
+      </button>
+
+      <!-- Dropdown Button -->
+      <div class="dropdown">
+        <button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          See More
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton">
+          <li><a class="dropdown-item" href="#" (click)="handleFilter('Action')">Action</a></li>
+          <li><a class="dropdown-item" href="#" (click)="handleFilter('Drama')">Drama</a></li>
+          <li><a class="dropdown-item" href="#" (click)="handleFilter('Comedy')">Comedy</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- Display Filtered Movies -->
+
+
+    <div class="row mt-4 g-4">
+      <div class="col-6 col-sm-4 col-md-3 col-lg-2" *ngFor="let movie of filteredMovies">
+        <div class="card bg-dark border-0">
+          <img [src]="movie.imageUrl" class="card-img-top" alt="{{ movie.title }}" />
+          <div class="card-body">
+            <h5 class="card-title">{{ movie.title }}</h5>
+            <p class="card-text small">Genre: {{ movie.genre }}</p>
+            <p class="card-text small">Year: {{ movie.year }}</p>
+            <!-- <p class="card-text small">Year: {{ movie.year }}</p> -->
+
+          </div>
         </div>
       </div>
     </div>
-  </div>  
 
-</div>
+    <!-- </div> -->
 
-<!-- Main Content Section -->
-<!-- <div class="container mt-5">
+    <!-- Main Content Section -->
+    <!-- <div class="container mt-5">
   <div class="row">
     <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4">
       <div class="card bg-dark text-light border-danger">
@@ -148,3 +116,89 @@
     </div>
   </div>
 </div> -->
+  </div>
+
+  <div class="container mt-5">
+    <h2 class="text-center mb-4">More Reasons to Join Us</h2>
+    <div class="row g-4">
+      <div class="col-6 col-sm-6 col-md-3">
+        <div class="card text-center bg-dark">
+          <div class="card-body">
+            <img src="assets/icons/film.svg" alt="Stories Icon" width="50"><br>
+            <p class="card-text">Wide Selection of DVDs</p>
+            A vast collection of movies, TV shows, and documentaries for all tastes and genres.
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-sm-6 col-md-3">
+        <div class="card text-center bg-dark">
+          <div class="card-body">
+            <img src="assets/icons/wallet2.svg" alt="Cancel Icon" width="50">
+            <p class="card-text">Affordable Prices</p>
+            Competitive rental rates to fit any budget, with discounts and special offers available.
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-sm-6 col-md-3">
+        <div class="card text-center bg-dark">
+          <div class="card-body">
+            <img src="assets/icons/tv-fill.svg" alt="Kids Icon" width="50">
+            <p class="card-text">HD Quality & Latest Releases</p>
+            Rent the latest movies and TV shows in high-definition or 4K quality.
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-sm-6 col-md-3">
+        <div class="card text-center bg-dark">
+          <div class="card-body">
+            <img src="assets/icons/headset.svg" alt="Watch Icon" width="50">
+            <p class="card-text">24/7 Customer Support</p>
+            Friendly and available support to help with any questions or issues, at any time.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="bg-dark text-light py-5 mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <h3>Questions? Contact us.</h3>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-light">FAQ</a></li>
+          <li><a href="#" class="text-light">Investor Relations</a></li>
+          <li><a href="#" class="text-light">Privacy</a></li>
+          <li><a href="#" class="text-light">Speed Test</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3">
+        <h3>Help Center</h3>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-light">Jobs</a></li>
+          <li><a href="#" class="text-light">Cookie Preferences</a></li>
+          <li><a href="#" class="text-light">Legal Notices</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3">
+        <h3>Account</h3>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-light">Ways to Watch</a></li>
+          <li><a href="#" class="text-light">Corporate Information</a></li>
+          <li><a href="#" class="text-light">Only on Netflix</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3">
+        <h3>Media Center</h3>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-light">Terms of Use</a></li>
+          <li><a href="#" class="text-light">Contact Us</a></li>
+          <li><a href="#" class="text-light">Help</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
