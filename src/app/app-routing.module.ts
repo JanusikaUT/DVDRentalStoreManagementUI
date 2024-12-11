@@ -17,7 +17,6 @@ const routes: Routes = [
 
   {path:'home',component:LandingPageComponent},
   { path: 'dvds', component: DvdPageComponent },
-  { path: 'dvds', component: DvdPageComponent },
   { path: 'register', component: RegisterComponent },
   { 
     path: 'customer-dashboard',
