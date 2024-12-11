@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { LandingPageComponent } from './COMPONENTS/landing-page/landing-page.component';
 import { DvdPageComponent } from './COMPONENTS/dvd-page/dvd-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient } from '@angular/common/http';
 import { ManagerDashboardComponent } from './COMPONENTS/manager-dashboard/manager-dashboard.component';
 import { SummaryComponent } from './COMPONENTS/Manager/summary/summary.component';
 import { ManageDvdComponent } from './COMPONENTS/Manager/manage-dvd/manage-dvd.component';
@@ -17,6 +17,11 @@ import { RegisterComponent } from './COMPONENTS/register/register.component';
 import { NavbarComponent } from './COMPONENTS/navbar/navbar.component';
 import { ManageCustomerComponent } from './COMPONENTS/Manager/manage-customer/manage-customer.component';
 import { NotificationsComponent } from './COMPONENTS/notifications/notifications.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+
+
 
 @NgModule({
   declarations: [
@@ -39,9 +44,12 @@ import { NotificationsComponent } from './COMPONENTS/notifications/notifications
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    BsDatepickerModule
   ],
-  providers: [],
+  providers: [provideHttpClient()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,24 +1,86 @@
 <div class="modal-overlay">
     <div class="modal-content">
-      <h2>{{ isEditMode ? 'Edit DVD' : 'Add New DVD' }}</h2>
-      <form>
-        <label>
-          Title:
-          <input type="text" [(ngModel)]="dvd.title" name="title" required />
-        </label>
-        <label>
-          Genre:
-          <input type="text" [(ngModel)]="dvd.genre" name="genre" required />
-        </label>
-        <label>
-          Director:
-          <input type="text" [(ngModel)]="dvd.director" name="director" required />
-        </label>
+    <!-- add dvd form  -->
+<div class="container-fluid" >
+  <div class="card shadow-lg mt-4">
+    <div class="card-header bg-danger text-white">Add DVD</div>
+    <div class="card-body">
+      <form [formGroup]="addDvdForm" (ngSubmit)="addDvd()">
+        <div class="mb-3">
+          <label for="title" class="form-label">DVD Title:</label>
+          <input
+            formControlName="title"
+            type="text"
+            class="form-control"
+            placeholder="Enter DVD Title"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="director" class="form-label">Director:</label>
+          <input
+            formControlName="director"
+            type="text"
+            class="form-control"
+            placeholder="Enter Director Name"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="category" class="form-label">Category:</label>
+          <input
+            formControlName="genre"
+            type="text"
+            class="form-control"
+            placeholder="Enter Category"
+            required
+          />
+        </div>
+        <div  class="mb-3">
+          <label for="price" class="form-label">Price:</label>
+          <input 
+            formControlName="price"
+            type="number"
+            class="form-control"
+            placeholder="Enter price"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="releaseDate" class="form-label">Release Date:</label>
+          <input
+            formControlName="releaseDate"
+            type="date"
+            class="form-control"
+            
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="quantity" class="form-label">Quantity:</label>
+          <input
+            formControlName="CopiesAvailable"
+            type="number"
+            class="form-control"
+            placeholder="Enter Quantity"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="image" class="form-label">DVD Image</label>
+          <input
+            type="file"
+            formControlName="imageUrl"
+            (change)="onFileSelected($event)" 
+            accept="image/*" 
+            class="form-control"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-success">Add DVD</button>
       </form>
-      <div class="modal-actions">
-        <button (click)="onSave()">Save</button>
-        <button (click)="onClose()">Cancel</button>
-      </div>
+    </div>
+  </div>
     </div>
   </div>
   

@@ -25,10 +25,15 @@
   <div class="row">
     <div class="col-md-4" *ngFor="let dvd of dvds">
       <div class="card">
-        <img class="card-img-top" src="{{ dvd.image }}" alt="{{ dvd.title }}">
+        <img [src]="'http://localhost:5062' + dvd.imageUrl" alt="DVD Image" width="80" height="90" />
         <div class="card-body">
           <h5 class="card-title">{{ dvd.title }}</h5>
+          <p class="card-text">{{dvd.director}}</p>
           <p class="card-text">{{ dvd.genre }}</p>
+          <p class="card-text">{{dvd.releaseDate}}</p>
+          <p class="card-text">{{dvd.price}}</p>
+          <p class="card-text">{{dvd.copiesAvailable}}</p>
+
           <button *ngIf="isLoggedIn && dvd.id !== undefined" class="btn btn-primary" (click)="rentDvd(dvd.id)">Rent</button>
           <button *ngIf="!isLoggedIn" class="btn btn-secondary" disabled>Login to Rent</button>
         </div>

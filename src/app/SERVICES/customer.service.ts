@@ -16,7 +16,7 @@ export interface Customer {
   providedIn: 'root'
 })
 export class CustomerService {
-  private apiUrl = 'http://localhost:5062/api/customers';
+  private apiUrl = 'http://localhost:5062/api/Authentication';
 
   constructor(private http: HttpClient) { }
 
@@ -72,6 +72,6 @@ export class CustomerService {
   }
 
   deleteCustomer(id: number){
-    return this.http.delete('http://localhost:5062/api/Customers/'+id);
+    return this.http.delete('http://localhost:5062/api/Authentication'+id);
   }
 }

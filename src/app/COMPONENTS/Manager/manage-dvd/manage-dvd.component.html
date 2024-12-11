@@ -10,17 +10,29 @@
       <table class="table table-striped table-bordered">
         <thead>
           <tr>
+            <th>Id</th>
+            <th>Image</th>
             <th>Title</th>
             <th>Genre</th>
             <th>Director</th>
+            <th>Release Date</th>
+            <th>Availablecopies</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let dvd of dvds">
+            <td>{{dvd.id}}</td>
+
+            <td>
+        <img [src]="'http://localhost:5062' + dvd.imageUrl" alt="DVD Image" width="80" height="90" />
+
+            </td>
             <td>{{ dvd.title }}</td>
             <td>{{ dvd.genre }}</td>
             <td>{{ dvd.director }}</td>
+            <td>{{dvd.releaseDate}}</td>
+            <td>{{dvd.copiesAvailable}}</td>
             <td>
               <button class="btn btn-warning btn-sm" (click)="editDvd(dvd)">Edit</button>
               <button class="btn btn-danger btn-sm" (click)="deleteDvd(dvd)">Delete</button>
@@ -35,9 +47,8 @@
   <app-modal
     *ngIf="showModal"
     [title]="isEditMode ? 'Edit DVD' : 'Add New DVD'"
-    [dvd]="selectedDvd"
-    [isEditMode]="isEditMode"
     (save)="saveDvd($event)"
     (close)="closeModal()"
   ></app-modal>
   
+
