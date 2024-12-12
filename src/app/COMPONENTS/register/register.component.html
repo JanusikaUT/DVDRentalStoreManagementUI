@@ -1,49 +1,86 @@
-<div class="d-flex justify-content-center align-items-center vh-100 bg-dark text-light">
+<div class="d-flex justify-content-center align-items-center min-vh-100 bg-dark text-light">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-lg-4 col-md-6 col-sm-8">
-        <div class="card shadow-lg border-0 bg-black">
-          <div class="card-header text-center border-0">
-            <h2 class="text-white">Register</h2> <!-- White text for visibility -->
+      <div class="col-lg-5 col-md-7 col-sm-10">
+        <div class="card bg-dark text-light border-0 p-3">
+          <div class="card-header text-center border-0 pb-2">
+            <h2 class="fw-bold">Sign Up</h2>
           </div>
           <div class="card-body">
             <form (ngSubmit)="register(registerForm)" #registerForm="ngForm">
               <div class="mb-3">
-                <label for="name" class="form-label text-light">Name</label>
-                <input type="text" class="form-control bg-dark text-light border-light" id="name" name="name" ngModel
+                <input 
+                  type="text" 
+                  class="form-control bg-secondary text-light border-secondary py-2" 
+                  id="name" 
+                  name="name" 
+                  ngModel 
+                  placeholder="Name" 
                   required>
               </div>
               <div class="mb-3">
-                <label for="email" class="form-label text-light">Email address</label>
-                <input type="email" class="form-control bg-dark text-light border-light" id="email" name="email" ngModel
+                <input 
+                  type="email" 
+                  class="form-control bg-secondary text-light border-secondary py-2" 
+                  id="email" 
+                  name="email" 
+                  ngModel 
+                  placeholder="Email address" 
                   required>
               </div>
               <div class="mb-3">
-                <label for="password" class="form-label text-light">Password</label>
-                <input type="password" class="form-control bg-dark text-light border-light" id="password"
-                  name="password" ngModel required>
-              </div>
-              <div class="mb-3">
-                <label for="nic" class="form-label text-light">NIC</label>
-                <input type="text" class="form-control bg-dark text-light border-light" id="nic" name="nic" ngModel
+                <input 
+                  type="password" 
+                  class="form-control bg-secondary text-light border-secondary py-2" 
+                  id="password" 
+                  name="password" 
+                  ngModel 
+                  placeholder="Password" 
                   required>
               </div>
               <div class="mb-3">
-                <label for="phone" class="form-label text-light">Phone (Optional)</label>
-                <input type="text" class="form-control bg-dark text-light border-light" id="phone" name="phone" ngModel>
+                <input 
+                  type="text" 
+                  class="form-control bg-secondary text-light border-secondary py-2" 
+                  id="nic" 
+                  name="nic" 
+                  ngModel 
+                  placeholder="NIC" 
+                  required>
               </div>
-              <!-- Role -->
               <div class="mb-3">
-                <label for="role" class="form-label">Role</label>
-                <select id="role" class="form-select" [(ngModel)]="role" name="role" required>
+                <input 
+                  type="text" 
+                  class="form-control bg-secondary text-light border-secondary py-2" 
+                  id="phone" 
+                  name="phone" 
+                  ngModel 
+                  placeholder="Phone (Optional)">
+              </div>
+              <div class="mb-3">
+                <select 
+                  id="role" 
+                  class="form-select bg-secondary text-light border-secondary py-2" 
+                  [(ngModel)]="role" 
+                  name="role" 
+                  required>
+                  <option value="" disabled selected>Select Role</option>
                   <option value="Customer">Customer</option>
                   <option value="Manager">Manager</option>
                 </select>
               </div>
-              <button type="submit" class="btn btn-danger w-100 py-2" [disabled]="!registerForm.form.valid">
-                Register
+              <button 
+                type="submit" 
+                class="btn btn-danger w-100 py-2 fw-bold" 
+                [disabled]="!registerForm.form.valid">
+                Sign Up
               </button>
             </form>
+          </div>
+          <div class="card-footer text-center border-0">
+            <small class="text-secondary">Already have an account? 
+              <a routerLink="/login" class="text-danger text-decoration-none fw-bold">Sign in now</a>
+            </small>
           </div>
         </div>
       </div>

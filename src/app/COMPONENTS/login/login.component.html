@@ -2,45 +2,85 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-4 col-md-6 col-sm-8">
-        <div class="card shadow-lg border-0 bg-black">
-          <div class="card-header text-center border-0">
-            <h2 class="text-white">Login</h2>
+        <div class="card bg-dark text-light border-0">
+          <div class="card-header text-center border-0 pb-0">
+            <h2 class="fw-bold">Sign In</h2>
           </div>
           <div class="card-body">
             <form (ngSubmit)="onLogin()" #loginForm="ngForm">
-              <div class="mb-3">
-                <label for="email" class="form-label text-light">Email address</label>
+              <div class="mb-4">
                 <input 
                   type="email" 
-                  class="form-control bg-dark text-light border-light" 
+                  class="form-control bg-secondary text-light border-secondary py-3" 
                   id="email" 
                   [(ngModel)]="email" 
                   name="email" 
+                  placeholder="Email address" 
                   required>
               </div>
-              <div class="mb-3">
-                <label for="password" class="form-label text-light">Password</label>
+              <div class="mb-4">
                 <input 
                   type="password" 
-                  class="form-control bg-dark text-light border-light" 
+                  class="form-control bg-secondary text-light border-secondary py-3" 
                   id="password" 
                   [(ngModel)]="password" 
                   name="password" 
+                  placeholder="Password" 
                   required>
               </div>
               <button 
                 type="submit" 
-                class="btn btn-danger w-100 py-2" 
+                class="btn btn-danger w-100 py-2 fw-bold" 
                 [disabled]="!loginForm.form.valid">
-                Login
+                Sign In
               </button>
             </form>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <div>
+                <input type="checkbox" id="rememberMe">
+                <label for="rememberMe" class="small text-secondary">Remember me</label>
+              </div>
+              <a href="#" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal" class="small text-secondary text-decoration-none">Forgot Password?</a>
+            </div>
           </div>
           <div class="card-footer text-center border-0">
-            <small class="text-light">Don't have an account? 
-              <a routerLink="/register" class="text-danger text-decoration-none">Register here</a>
+            <small class="text-secondary">New to Netflix? 
+              <a routerLink="/register" class="text-danger text-decoration-none fw-bold">Sign up now</a>
             </small>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Forgot Password Modal -->
+  <div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-labelledby="forgotPasswordModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content bg-dark text-light">
+        <div class="modal-header border-0">
+          <h5 class="modal-title" id="forgotPasswordModalLabel">Forgot Password</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="onForgotPassword()" #forgotPasswordForm="ngForm">
+            <div class="mb-3">
+              <label for="forgotEmail" class="form-label">Enter your email address</label>
+              <input 
+                type="email" 
+                class="form-control bg-secondary text-light border-secondary" 
+                id="forgotEmail" 
+                [(ngModel)]="forgotEmail" 
+                name="forgotEmail" 
+                placeholder="Email address" 
+                required>
+            </div>
+            <button 
+              type="submit" 
+              class="btn btn-danger w-100 py-2" 
+              [disabled]="!forgotPasswordForm.form.valid">
+              Reset Password
+            </button>
+          </form>
         </div>
       </div>
     </div>

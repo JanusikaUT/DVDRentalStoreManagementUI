@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../SERVICES/auth.service';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -10,8 +12,9 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   email: string = '';
   password: string = '';
+  forgotEmail: string = '';
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router,private http: HttpClient, private toastr: ToastrService) {}
 
   onLogin(): void {
     this.authService.login(this.email, this.password).subscribe(
@@ -37,4 +40,23 @@ export class LoginComponent {
       }
     );
   }
+
+    // Forgot Password logic
+    onForgotPassword() {
+      const payload = { email: this.forgotEmail };
+  
+      this.http.post('https://your-api-url/api/auth/forgot-password', payload)
+        .subscribe({
+          next: (response: any) => {
+            // Handle success response
+            this.toastr.success('Password reset link sent to your email!', 'Success');
+            this.forgotEmail = ''; // Clear the email field
+          },
+          error: (error) => {
+            // Handle error response
+            this.toastr.error('Failed to send reset link. Please try again.', 'Error');
+          }
+        });
+    }
+  
 }
