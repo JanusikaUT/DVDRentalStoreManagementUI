@@ -1,33 +1,102 @@
-<div class="dashboard-container">
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <nav>
-        <ul>
-          <li><a routerLink="/manager-dashboard/home">Home</a></li>
-          <li><a routerLink="/manager-dashboard/manage-dvd">Manage DVD</a></li>
-          <li><a routerLink="/manager-dashboard/manage-customers">Manage Customer</a></li>
-          <li><a routerLink="/manager-dashboard/manage-rental">Manage Rental</a></li>
-          <li><a routerLink="/dashboard/reports">Reports</a></li>
-          <li><a routerLink="/logout">Logout</a></li>
-        </ul>
-      </nav>
-    </aside>
-  
-    <!-- Main Content -->
-    <div class="main-content">
-      <!-- Header -->
-      <header class="dashboard-header">
-        <input type="text" placeholder="Search..." />
-        <div class="profile">
-          <img src="assets/images/manageravatar.jpg" alt="Manager Avatar" />
-          <span>Manager Name</span>
-        </div>
-      </header>
-  
-      <!-- Dynamic Content Area -->
-      <div class="content-area">
-        <router-outlet></router-outlet>
+<div class="dashboard-container" style="display: flex; height: 100vh; background-color: #0a0a0a;">
+  <!-- Sidebar -->
+  <aside
+    class="sidebar"
+    style="background-color: #141414; color: #ffffff; width: 250px; padding: 20px;"
+  >
+    <nav>
+      <ul style="list-style: none; padding: 0;">
+        <li style="margin-bottom: 15px;">
+          <a
+            routerLink="/manager-dashboard/home"
+            style="color: #e50914; text-decoration: none; font-size: 18px;"
+          >
+            Home
+          </a>
+        </li>
+        <li style="margin-bottom: 15px;">
+          <a
+            routerLink="/manager-dashboard/manage-dvd"
+            style="color: #e50914; text-decoration: none; font-size: 18px;"
+          >
+            Manage DVD
+          </a>
+        </li>
+        <li style="margin-bottom: 15px;">
+          <a
+            routerLink="/manager-dashboard/manage-customers"
+            style="color: #e50914; text-decoration: none; font-size: 18px;"
+          >
+            Manage Customer
+          </a>
+        </li>
+        <li style="margin-bottom: 15px;">
+          <a
+            routerLink="/manager-dashboard/manager-rental"
+            style="color: #e50914; text-decoration: none; font-size: 18px;"
+          >
+            Manage Rental
+          </a>
+        </li>
+
+        <li>
+          <a routerLink="/manager-dashboard/manager-return"
+          >
+          Return Dvd
+        </a>
+        </li>
+
+        <li style="margin-bottom: 15px;">
+          <a
+            routerLink="/manager-dashboard/reports"
+            style="color: #e50914; text-decoration: none; font-size: 18px;"
+          >
+            Reports
+          </a>
+        </li>
+        <li>
+          <a
+            routerLink="/logout"
+            style="color: #e50914; text-decoration: none; font-size: 18px;"
+          >
+            Logout
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <div
+    class="main-content"
+    style="flex-grow: 1; background-color: #181818; color: #ffffff; display: flex; flex-direction: column;"
+  >
+    <!-- Header -->
+    <header
+      class="dashboard-header"
+      style="display: flex; justify-content: space-between; align-items: center; padding: 20px; border-bottom: 1px solid #333;"
+    >
+      <input
+        type="text"
+        placeholder="Search..."
+        style="padding: 8px 15px; border: 1px solid #e50914; background-color: #333; color: #ffffff; border-radius: 5px;"
+      />
+      <div class="profile" style="display: flex; align-items: center; gap: 10px;">
+        <img
+          src="assets/images/manageravatar.jpg"
+          alt="Manager Avatar"
+          style="width: 40px; height: 40px; border-radius: 50%;"
+        />
+        <span style="color: #ffffff; font-size: 16px;">Manager Name</span>
       </div>
+    </header>
+
+    <!-- Dynamic Content Area -->
+    <div
+      class="content-area"
+      style="flex-grow: 1; padding: 20px; overflow-y: auto;"
+    >
+      <router-outlet></router-outlet>
     </div>
   </div>
-  
+</div>

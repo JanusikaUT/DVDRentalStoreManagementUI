@@ -1,86 +1,98 @@
 <div class="modal-overlay">
-    <div class="modal-content">
-    <!-- add dvd form  -->
-<div class="container-fluid" >
-  <div class="card shadow-lg mt-4">
-    <div class="card-header bg-danger text-white">Add DVD</div>
-    <div class="card-body">
-      <form [formGroup]="addDvdForm" (ngSubmit)="addDvd()">
-        <div class="mb-3">
-          <label for="title" class="form-label">DVD Title:</label>
-          <input
-            formControlName="title"
-            type="text"
-            class="form-control"
-            placeholder="Enter DVD Title"
-            required
-          />
-        </div>
-        <div class="mb-3">
-          <label for="director" class="form-label">Director:</label>
-          <input
-            formControlName="director"
-            type="text"
-            class="form-control"
-            placeholder="Enter Director Name"
-            required
-          />
-        </div>
-        <div class="mb-3">
-          <label for="category" class="form-label">Category:</label>
-          <input
-            formControlName="genre"
-            type="text"
-            class="form-control"
-            placeholder="Enter Category"
-            required
-          />
-        </div>
-        <div  class="mb-3">
-          <label for="price" class="form-label">Price:</label>
-          <input 
-            formControlName="price"
-            type="number"
-            class="form-control"
-            placeholder="Enter price"
-            required
-          />
-        </div>
-        <div class="mb-3">
-          <label for="releaseDate" class="form-label">Release Date:</label>
-          <input
-            formControlName="releaseDate"
-            type="date"
-            class="form-control"
-            
-            required
-          />
-        </div>
-        <div class="mb-3">
-          <label for="quantity" class="form-label">Quantity:</label>
-          <input
-            formControlName="CopiesAvailable"
-            type="number"
-            class="form-control"
-            placeholder="Enter Quantity"
-            required
-          />
-        </div>
-        <div class="mb-3">
-          <label for="image" class="form-label">DVD Image</label>
-          <input
-            type="file"
-            formControlName="imageUrl"
-            (change)="onFileSelected($event)" 
-            accept="image/*" 
-            class="form-control"
-            required
-          />
-        </div>
-        <button type="submit" class="btn btn-success">Add DVD</button>
-      </form>
-    </div>
+  <div class="modal-content">
+      <!-- add dvd form  -->
+      <div class="container-fluid">
+          <div class="card shadow-lg mt-4" style="background-color: #141414; color: #ffffff;">
+              <div class="card-header" style="background-color: #e50914; color: #ffffff; font-weight: bold;">
+                  Add DVD
+              </div>
+              <div class="card-body">
+                  <form [formGroup]="addDvdForm" (ngSubmit)="addDvd()">
+                      <div class="mb-3">
+                          <label for="title" class="form-label" style="color: #ffffff;">DVD Title:</label>
+                          <input
+                              formControlName="title"
+                              type="text"
+                              class="form-control"
+                              placeholder="Enter DVD Title"
+                              style="background-color: #333333; color: #ffffff; border: 1px solid #e50914;"
+                              required
+                          />
+                      </div>
+                      <div class="mb-3">
+                          <label for="director" class="form-label" style="color: #ffffff;">Director:</label>
+                          <input
+                              formControlName="director"
+                              type="text"
+                              class="form-control"
+                              placeholder="Enter Director Name"
+                              style="background-color: #333333; color: #ffffff; border: 1px solid #e50914;"
+                              required
+                          />
+                      </div>
+                      <div class="mb-3">
+                          <label for="category" class="form-label" style="color: #ffffff;">Category:</label>
+                          <input
+                              formControlName="genre"
+                              type="text"
+                              class="form-control"
+                              placeholder="Enter Category"
+                              style="background-color: #333333; color: #ffffff; border: 1px solid #e50914;"
+                              required
+                          />
+                      </div>
+                      <div class="mb-3">
+                          <label for="price" class="form-label" style="color: #ffffff;">Price:</label>
+                          <input 
+                              formControlName="price"
+                              type="number"
+                              class="form-control"
+                              placeholder="Enter price"
+                              style="background-color: #333333; color: #ffffff; border: 1px solid #e50914;"
+                              required
+                          />
+                      </div>
+                      <div class="mb-3">
+                          <label for="releaseDate" class="form-label" style="color: #ffffff;">Release Date:</label>
+                          <input
+                              formControlName="releaseDate"
+                              type="date"
+                              class="form-control"
+                              style="background-color: #333333; color: #ffffff; border: 1px solid #e50914;"
+                              required
+                          />
+                      </div>
+                      <div class="mb-3">
+                          <label for="quantity" class="form-label" style="color: #ffffff;">Quantity:</label>
+                          <input
+                              formControlName="CopiesAvailable"
+                              type="number"
+                              class="form-control"
+                              placeholder="Enter Quantity"
+                              style="background-color: #333333; color: #ffffff; border: 1px solid #e50914;"
+                              required
+                          />
+                      </div>
+                      <div class="mb-3">
+                          <label for="image" class="form-label" style="color: #ffffff;">DVD Image</label>
+                          <input
+                              type="file"
+                              formControlName="imageUrl"
+                              (change)="onFileSelected($event)" 
+                              accept="image/*" 
+                              class="form-control"
+                              style="background-color: #333333; color: #ffffff; border: 1px solid #e50914;"
+                              required
+                          />
+                      </div>
+                      <div class="d-flex justify-content-between">
+                        <button type="submit" class="btn btn-danger" style="background-color: #e50914; border: none;">Add DVD</button>
+                        <button type="button" class="btn btn-secondary" (click)="onClose()">Close</button>
+                      </div>
+                    
+                  </form>
+              </div>
+          </div>
+      </div>
   </div>
-    </div>
-  </div>
-  
+</div>

@@ -79,9 +79,10 @@ loaddvds(){
       });
     }
   }
+
+  closemodal(){
+    this.showModal=false;
+  }
   
 
-  closeModal() {
-    this.showModal = false;
-  }
 }

@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable, of } from 'rxjs';
+import { Rental } from '../models/Rental';
 
 export interface Dvd {
 copiesAvailable: number;
@@ -20,6 +21,7 @@ copiesAvailable: number;
   providedIn: 'root'
 })
 export class DvdService {
+
  
   private apiUrl = 'http://localhost:5062/api/DVDs';
 
@@ -41,17 +43,31 @@ export class DvdService {
     return this.http.delete(`http://localhost:5062/api/Manager/${id}`);
   }
 
-  rentDvd(dvdId: number, customerId: number): Observable<void> {
-    const rental = {
-      dvdId: dvdId,
-      customerId: customerId,
-      rentalDate: new Date().toISOString(),
-    };
-    return this.http.post<void>('http://localhost:5062/api/rentals', rental);
+  rentDvd(rentalRequest: { customerId: number; dvdId: number; rentalDate: string }) {
+ 
+    return this.http.post('http://localhost:5062/api/Rentals/AddRental', rentalRequest);
   }
 
   getallrental(){
-    return this.http.get<any[]>('http://localhost:5062/api/Rentals')
+    return this.http.get<Rental[]>('http://localhost:5062/api/Rentals/GetAllRental')
   }
+
+  acceptRental(id: number) {
+    return this.http.put(`http://localhost:5062/api/Rentals/RentalAccept/${id}`, null);
+  }
+  
+  rejectrental(id:number){
+    return this.http.put(`http://localhost:5062/api/Rentals/RejectRental/${id}`,null)
+  }
+    // Fetch rentals by customer ID
+    getRentalsByCustomer(customerId: number){
+      return this.http.get<Rental[]>(`http://localhost:5062/api/Rentals/GetRentalsByCustomer/${customerId}`);
+    }
+  
+      // Process the return of a specific rental
+      returnRental(rentalId: number){
+        return this.http.put(`http://localhost:5062/api/Rentals/ReturnRental/${rentalId}`, null);
+      }
+
   
 }

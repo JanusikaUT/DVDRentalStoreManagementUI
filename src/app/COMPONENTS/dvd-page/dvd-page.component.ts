@@ -3,6 +3,7 @@ import { DvdService } from '../../SERVICES/dvd.service';
 import { AuthService } from '../../SERVICES/auth.service';
 import { Router } from '@angular/router';
 import { Dvd } from '../../models/dvd';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-dvd-page',
@@ -13,6 +14,7 @@ import { Dvd } from '../../models/dvd';
 export class DvdPageComponent implements OnInit{
   isLoggedIn: boolean = false;
   dvds:Dvd[]=[]
+ customerId = 0; 
    // Hardcoded DVDs
   
     // Add more hardcoded DVDs here
@@ -21,7 +23,9 @@ export class DvdPageComponent implements OnInit{
   constructor(
     private dvdService: DvdService,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private toastr:ToastrService      
+    
   ) {}
 
   ngOnInit(): void {
@@ -33,14 +37,34 @@ export class DvdPageComponent implements OnInit{
 
 
   rentDvd(id: number): void {
-    const customerId = 1; // Replace with actual customer ID
-    this.dvdService.rentDvd(id, customerId).subscribe(
+
+    const getcustomer = localStorage.getItem('customer'); // Retrieve the customer from localStorage
+    if (getcustomer) {
+      try {
+        const customer = JSON.parse(getcustomer);
+        console.log(customer.Id); // Parse the JSON string to an object
+        if (customer.Id) {
+          this.customerId = +customer.Id; // Assign the ID to cusId
+          console.log(this.customerId);
+        }
+      } catch (error) {
+        console.error('Error parsing customer data from localStorage:', error);
+        this.toastr.error('Failed to retrieve customer history.', 'Error');
+        return;
+      }
+    }
+    const rental = {
+      dvdId:id ,
+      customerId: this.customerId,
+      rentalDate: new Date().toISOString(),
+    };
+    this.dvdService.rentDvd(rental).subscribe(
       () => {
-        alert('DVD rented successfully!');
+        this.toastr.success('DVD rented successfully!');
         this.loaddvds(); // Refresh the list if needed
       },
       (error) => {
-        console.error('Error renting DVD:', error);
+        this.toastr.error('Error renting DVD:', error);
         alert('Failed to rent DVD.');
       }
     );

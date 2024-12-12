@@ -44,11 +44,8 @@
   </div>
   
   <!-- Modal for Add/Edit DVD -->
-  <app-modal
-    *ngIf="showModal"
-    [title]="isEditMode ? 'Edit DVD' : 'Add New DVD'"
-    (save)="saveDvd($event)"
-    (close)="closeModal()"
-  ></app-modal>
+  <app-modal *ngIf="showModal" (closeModal)="closemodal()">
+    
+  </app-modal>
   
 

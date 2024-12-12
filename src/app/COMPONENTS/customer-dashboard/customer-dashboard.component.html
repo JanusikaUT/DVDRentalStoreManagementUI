@@ -1,149 +1,138 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+<nav class="navbar navbar-expand-lg navbar-dark bg-black">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#"><img src="logo.png" alt="Logo"></a>
+    <a class="navbar-brand" href="#"><img src="logo.png" alt="Logo" style="height: 40px;"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link">Home</a>
+          <a class="nav-link text-light" routerLink="/customer-home">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" (click)="browsedvd()" >Browse DVDs</a>
+          <a class="nav-link text-light" (click)="browsedvd()">Browse DVDs</a>
         </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link" routerLink="/dvds">B DVDs</a>
-        </li> -->
-        
-        <!-- <li *ngIf="isLoggedIn" class="nav-item">
-          <button class="btn btn-danger" (click)="logout()">Logout</button>
-        </li> -->
       </ul>
     </div>
   </div>
 </nav>
 
-
-
-
 <!-- Dashboard -->
-<div class="container-fluid p-4">
-    <div class="row">
-      <!-- Sidebar -->
-      <div class="col-md-3 mb-4">
-        <div class="card shadow-sm">
-          <div class="card-header bg-dark text-light">
-            <h5 class="text-center">Customer Dashboard</h5>
+<div class="container-fluid p-4 bg-dark text-light">
+  <div class="row">
+    <!-- Sidebar -->
+    <div class="col-md-3 mb-4">
+      <div class="card bg-black shadow-sm">
+        <div class="card-header text-center border-0">
+          <h5 class="text-light">Customer Dashboard</h5>
+        </div>
+        <div class="list-group">
+          <a href="#profileSection" class="list-group-item list-group-item-action bg-dark text-light">Profile</a>
+          <a href="#rentedMoviesSection" class="list-group-item list-group-item-action bg-dark text-light">Rented Movies</a>
+          <a href="#notificationsSection" class="list-group-item list-group-item-action bg-dark text-light">Overdue Notifications</a>
+          <a href="/logout" class="list-group-item list-group-item-action bg-dark text-danger">Logout</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="col-md-9">
+      <!-- Profile Section -->
+      <div id="profileSection" class="mb-4">
+        <div class="card bg-black shadow-sm">
+          <div class="card-header border-0">
+            <h5 class="text-light">Edit Profile</h5>
           </div>
-          <div class="list-group">
-            <a href="#profileSection" class="list-group-item list-group-item-action">Profile</a>
-            <a href="#rentedMoviesSection" class="list-group-item list-group-item-action">Rented Movies</a>
-            <a href="#notificationsSection" class="list-group-item list-group-item-action">Overdue Notifications</a>
-            <a href="/logout" class="list-group-item list-group-item-action text-danger">Logout</a>
+          <div class="card-body">
+            <form>
+              <div class="mb-3">
+                <label for="name" class="form-label text-light">Name</label>
+                <input type="text" class="form-control bg-dark text-light" id="name" placeholder="Enter your name" required>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label text-light">Email</label>
+                <input type="email" class="form-control bg-dark text-light" id="email" placeholder="Enter your email" required>
+              </div>
+              <div class="mb-3">
+                <label for="phone" class="form-label text-light">Phone</label>
+                <input type="text" class="form-control bg-dark text-light" id="phone" placeholder="Enter your phone number">
+              </div>
+              <button type="submit" class="btn btn-primary w-100">Update Profile</button>
+            </form>
           </div>
         </div>
       </div>
-  
-      <!-- Main Content -->
-      <div class="col-md-9">
-        <!-- Profile Section -->
-        <div id="profileSection" tabindex="-1"
-        aria-labelledby="profileModalLabel"
-        aria-hidden="true" class="mb-4">
-          <div class="card shadow-sm">
-            <div class="card-header bg-dark text-light">
-              <h5>Edit Profile</h5>
-            </div>
-            <div class="card-body bg-secondary text-light">
-              <form>
-                <div class="mb-3">
-                  <label for="name" class="form-label">Name</label>
-                  <input type="text" class="form-control border-danger" id="name" placeholder="Enter your name" required>
-                </div>
-                <div class="mb-3">
-                  <label for="email" class="form-label">Email</label>
-                  <input type="email" class="form-control border-danger" id="email" placeholder="Enter your email" required>
-                </div>
-                <div class="mb-3">
-                  <label for="phone" class="form-label">Phone</label>
-                  <input type="text" class="form-control border-danger" id="phone" placeholder="Enter your phone number">
-                </div>
-                <button type="submit" class="btn btn-dark w-100">Update Profile</button>
-              </form>
+
+      <!-- Rented Movies Section -->
+      <div id="rentedMoviesSection" class="mb-4">
+        <div class="card bg-black shadow-sm">
+          <div class="card-header border-0">
+            <h5 class="text-light">Rented Movies</h5>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-dark table-borderless">
+                <thead>
+                  <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Genre</th>
+                    <th>Rented Date</th>
+                    <th>Return Date</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Inception</td>
+                    <td>Sci-Fi</td>
+                    <td>2024-11-20</td>
+                    <td>2024-11-27</td>
+                    <td class="text-warning">Overdue</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Avatar</td>
+                    <td>Action</td>
+                    <td>2024-11-15</td>
+                    <td>2024-11-22</td>
+                    <td class="text-success">Returned</td>
+                  </tr>
+                  <!-- Dynamically add rows here -->
+                  <tr *ngFor="let rent of rentals">
+                    <td>{{ rent.customerId }}</td>
+                    <td>{{ rent.dvd?.title }}</td>
+                    <td>{{ rent.rentalDate | date }}</td>
+                    <td>{{ rent.returnDate | date }}</td>
+                    <td class="text-warning">{{rent.status}}</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
-  
-        <!-- Rented Movies Section -->
-        <div id="rentedMoviesSection" class="mb-4">
-          <div class="card shadow-sm">
-            <div class="card-header bg-dark text-light">
-              <h5>Rented Movies</h5>
-            </div>
-            <div class="card-body bg-secondary text-light">
-              <div class="table-responsive">
-                <table class="table table-striped table-dark">
-                  <thead>
-                    <tr>
-                      <th>Id</th>
-                      <th>Title</th>
-                      <th>Genre</th>
-                      <th>Rented Date</th>
-                      <th>Return Date</th>
-                      <th>Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>Inception</td>
-                      <td>Sci-Fi</td>
-                      <td>2024-11-20</td>
-                      <td>2024-11-27</td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Avatar</td>
-                      <td>Action</td>
-                      <td>2024-11-15</td>
-                      <td>2024-11-22</td>
-                    </tr>
-                    <!-- Dynamically add rows here -->
-                    <tr *ngFor="let rent of rentals">
-                      <td>{{ rent.customerId }}</td>
-                      <td>{{ rent.dvd?.title }}</td>
-                      <td>{{ rent.rentalDate | date }}</td>
-                      <td>{{ rent.returnDate | date }}</td>
-                      <td class="text-warning">{{rent.status}}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
+      </div>
+
+      <!-- Overdue Notifications Section -->
+      <div id="notificationsSection" class="mb-4">
+        <div class="card bg-black shadow-sm">
+          <div class="card-header border-0">
+            <h5 class="text-light">Overdue Notifications</h5>
           </div>
-        </div>
-  
-        <!-- Overdue Notifications Section -->
-        <div id="notificationsSection" class="mb-4">
-          <div class="card shadow-sm">
-            <div class="card-header bg-dark text-light">
-              <h5>Overdue Notifications</h5>
+          <div class="card-body">
+            <div *ngIf="overdueNotifications.length === 0" class="text-center text-light">
+              No overdue movies.
             </div>
-            <div class="card-body bg-secondary text-light">
-              <div *ngIf="overdueNotifications.length === 0" class="text-center text-warning">
-                No overdue movies.
-              </div>
-              <ul class="list-group">
-                <li *ngFor="let notification of overdueNotifications" class="list-group-item bg-warning text-dark">
-                  {{ notification }}
-                </li>
-                <!-- Dynamically add overdue notifications here -->
-              </ul>
-            </div>
+            <ul class="list-group">
+              <li *ngFor="let notification of overdueNotifications" class="list-group-item bg-dark text-warning">
+                {{ notification }}
+              </li>
+              <!-- Dynamically add overdue notifications here -->
+            </ul>
           </div>
         </div>
       </div>
     </div>
   </div>
-  
+</div>

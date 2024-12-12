@@ -3,6 +3,7 @@ import { AuthService } from '../../SERVICES/auth.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
+import { jwtDecode } from 'jwt-decode';
 
 @Component({
   selector: 'app-login',
@@ -20,6 +21,9 @@ export class LoginComponent {
     this.authService.login(this.email, this.password).subscribe(
       (response: any) => {
         localStorage.setItem('token', response.token);
+        const decoded:any = jwtDecode(response.token);
+        localStorage.setItem('customer',JSON.stringify(decoded));
+        console.log(decoded)
         alert('Login successful!');
         const role = this.authService.getUserRole();
         console.log('User role:', role);
@@ -60,3 +64,5 @@ export class LoginComponent {
     }
   
 }
+
+

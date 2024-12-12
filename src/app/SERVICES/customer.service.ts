@@ -16,7 +16,9 @@ export interface Customer {
   providedIn: 'root'
 })
 export class CustomerService {
-  private apiUrl = 'http://localhost:5062/api/Authentication';
+  private apiUrl = 'http://localhost:5062/api/Customers';
+  private registerurl='http://localhost:5062/api/Authentication/register';
+  private loginurl='http://localhost:5276/api/Auth/CustomerLogin';
 
   constructor(private http: HttpClient) { }
 
@@ -59,8 +61,12 @@ export class CustomerService {
   getusers(){
     return this.http.get<Customer[]>('')
   }
-  getCustomers(): Observable<Customer[]> {
+  getCustomers(){
     return this.http.get<Customer[]>(this.apiUrl);
+  }
+
+  getcustomerbyid(customerId:number){
+    return this.http.get<Customer>(this.apiUrl+"/"+customerId);
   }
 
   addCustomer(customer: Customer): Observable<Customer> {
@@ -73,5 +79,9 @@ export class CustomerService {
 
   deleteCustomer(id: number){
     return this.http.delete('http://localhost:5062/api/Authentication'+id);
+  }
+
+  getallusers(){
+    return this.http.get<any>('http://localhost:5062/api/Customers/Getalluser');
   }
 }

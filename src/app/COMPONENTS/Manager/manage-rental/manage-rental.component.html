@@ -1,0 +1,63 @@
+<section class="container mt-5 rental-container">
+    <div class="row">
+      <!-- Header Section -->
+      <div class="col-md-6">
+        <h1 style="color: rgb(4, 4, 43);">Rental Details</h1>
+      </div>
+  <!-- Search Box Section -->
+
+
+      <div class="col-md-6 text-right">
+        <input 
+          type="text" 
+          class="form-control" 
+          placeholder="Search rental details"
+        />
+      </div>
+    </div>
+      
+      <!-- Table Section -->
+      <div class="row">
+        <div class="col-12">
+          <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover">
+              <thead class="thead-dark">
+                <tr>
+                  <th>User Name</th>
+                  <th>DVD Title</th>
+                  <th>Rental Date</th>
+                  <th>Return Date</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let rental of rentals | pendingFil : 'pending'  ">
+                  <td>{{ rental.customer?.name}}</td>
+                  <td>{{ rental.dvd?.title}}</td>
+                  <td>{{ rental.rentalDate | date: 'short' }}</td>
+                  <td>{{ rental.returnDate ? (rental.returnDate | date: 'short') : 'N/A' }}</td>
+                  <td class="text-warning">{{ rental.status }}</td>
+                  <td>
+                    <button 
+    class="btn btn-sm btn-success p-1" 
+    (click)="acceptAction(rental.rentalId)"
+    title="Accept the rental request"
+  >
+    Accept
+  </button>
+  <button 
+    class="btn btn-sm btn-danger" 
+    (click)="rejectAction(rental.rentalId)"
+    title="Reject the rental request"
+  >
+    Reject
+  </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+  </section>

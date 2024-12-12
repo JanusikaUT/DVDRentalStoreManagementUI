@@ -10,6 +10,11 @@ import { RegisterComponent } from './COMPONENTS/register/register.component';
 import { CustomerDashboardComponent } from './COMPONENTS/customer-dashboard/customer-dashboard.component';
 import { ManageCustomerComponent } from './COMPONENTS/Manager/manage-customer/manage-customer.component';
 import { AuthGuard } from './guards/auth.guard';
+import { ProfileComponent } from './COMPONENTS/profile/profile.component';
+import { CustomerHomeComponent } from './COMPONENTS/customer-home/customer-home.component';
+import { ManageRentalComponent } from './COMPONENTS/Manager/manage-rental/manage-rental.component';
+import { ManageReturnComponent } from './COMPONENTS/Manager/manage-return/manage-return.component';
+import { ManageReportComponent } from './COMPONENTS/Manager/manage-report/manage-report.component';
 
 const routes: Routes = [
   {path:'',component:LandingPageComponent},
@@ -22,6 +27,10 @@ const routes: Routes = [
     path: 'customer-dashboard',
     component: CustomerDashboardComponent,
     canActivate: [AuthGuard], 
+    children:[
+      { path: 'customer-home', component: CustomerHomeComponent },
+
+    ]
   },
   { 
     path: 'manager-dashboard',
@@ -31,8 +40,9 @@ const routes: Routes = [
               { path: 'home', component: SummaryComponent },
               { path: 'manage-dvd', component: ManageDvdComponent },
               { path: 'manage-customers', component: ManageCustomerComponent },
-    // { path: 'manage-rental', component: ManageRentalComponent },
-    // { path: 'reports', component: ReportsComponent },
+              { path: 'manager-rental', component: ManageRentalComponent },
+              {path:'manager-return',component:ManageReturnComponent},
+              { path: 'reports', component: ManageReportComponent },
     ]
   },
   // { path: 'logout', component: LogoutComponent },

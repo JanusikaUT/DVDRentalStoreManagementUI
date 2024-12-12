@@ -51,82 +51,106 @@
   
     <!-- Modal -->
     <div
-      class="modal fade"
-      id="customerModal"
-      tabindex="-1"
-      aria-labelledby="customerModalLabel"
-      aria-hidden="true"
+  class="modal fade"
+  id="customerModal"
+  tabindex="-1"
+  aria-labelledby="customerModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div
+      class="modal-content"
+      style="background-color: #141414; color: #ffffff; border-radius: 8px;"
     >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="customerModalLabel">
-              {{ isEditing ? 'Edit Customer' : 'Add Customer' }}
-            </h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
+      <div
+        class="modal-header"
+        style="background-color: #e50914; color: #ffffff; border-bottom: 1px solid #333;"
+      >
+        <h5 class="modal-title" id="customerModalLabel">
+          {{ isEditing ? 'Edit Customer' : 'Add Customer' }}
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          style="filter: invert(1);"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="customerForm" (ngSubmit)="addOrUpdateCustomer()">
+          <div class="mb-3">
+            <label for="name" class="form-label" style="color: #ffffff;">
+              Name
+            </label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              formControlName="name"
+              style="background-color: #333333; color: #ffffff; border: 1px solid #e50914;"
+            />
           </div>
-          <div class="modal-body">
-            <form [formGroup]="customerForm" (ngSubmit)="addOrUpdateCustomer()">
-              <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="name"
-                  formControlName="name"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  id="email"
-                  formControlName="email"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="nic" class="form-label">NIC</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="nic"
-                  formControlName="nic"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="phone" class="form-label">Phone</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="phone"
-                  formControlName="phone"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="address" class="form-label">Address</label>
-                <textarea
-                  class="form-control"
-                  id="address"
-                  formControlName="address"
-                ></textarea>
-              </div>
-              <button
-                type="submit"
-                class="btn btn-primary"
-                data-bs-dismiss="modal"
-              >
-                Save
-              </button>
-            </form>
+          <div class="mb-3">
+            <label for="email" class="form-label" style="color: #ffffff;">
+              Email
+            </label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              formControlName="email"
+              style="background-color: #333333; color: #ffffff; border: 1px solid #e50914;"
+            />
           </div>
-        </div>
+          <div class="mb-3">
+            <label for="nic" class="form-label" style="color: #ffffff;">
+              NIC
+            </label>
+            <input
+              type="text"
+              class="form-control"
+              id="nic"
+              formControlName="nic"
+              style="background-color: #333333; color: #ffffff; border: 1px solid #e50914;"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="phone" class="form-label" style="color: #ffffff;">
+              Phone
+            </label>
+            <input
+              type="text"
+              class="form-control"
+              id="phone"
+              formControlName="phone"
+              style="background-color: #333333; color: #ffffff; border: 1px solid #e50914;"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="address" class="form-label" style="color: #ffffff;">
+              Address
+            </label>
+            <textarea
+              class="form-control"
+              id="address"
+              formControlName="address"
+              style="background-color: #333333; color: #ffffff; border: 1px solid #e50914;"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="btn btn-danger"
+            data-bs-dismiss="modal"
+            style="background-color: #e50914; border: none;"
+          >
+            Save
+          </button>
+        </form>
       </div>
     </div>
+  </div>
+</div>
+
   </div>
   

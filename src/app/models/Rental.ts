@@ -9,7 +9,13 @@ export interface Rental {
   returnDate?: Date; // Optional: Date when the rental was returned
   isOverdue?: boolean; // Optional: Indicates if the rental is overdue (defaults to false)
   status: string;
-  customer?: Customer;
+  customer?: User;
   dvd?: Dvd;
   // Status of the rental (e.g., "Pending")
+}
+
+export interface User{
+  id: number,
+  name: string,
+  email:string
 }

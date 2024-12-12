@@ -9,6 +9,12 @@ import { DvdService } from '../../../SERVICES/dvd.service';
   styleUrl: './modal.component.css'
 })
 export class ModalComponent {
+  @Output() closeModal = new EventEmitter<void>(); // Event emitter for closing the modal
+
+  onClose() {
+    this.closeModal.emit(); // Emit the event when the close button is clicked
+  }
+
 addDvdForm: FormGroup;
 showadddvd: any;
 showModal = false;
@@ -69,7 +75,7 @@ onFileSelected(event: Event) {
       next: (response) => {
         this.toastr.success('DVD added successfully', 'Success');
         this.addDvdForm.reset();
-        this.closeModal()
+        this.onClose()
       },
       error: (err) => {
         this.toastr.error(err.error || 'Failed to add DVD', 'Error');
@@ -77,8 +83,6 @@ onFileSelected(event: Event) {
     });
   }
 
-  closeModal() {
-    this.showModal = false;
-  }
+
  
 }

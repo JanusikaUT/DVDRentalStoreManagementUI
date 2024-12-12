@@ -1,0 +1,42 @@
+<section class="return-container">
+    <div class="mb-4">
+      <label for="customerId">Customer ID:</label>
+      <input 
+        type="number" 
+        id="customerId" 
+        [(ngModel)]="customerid" 
+        (keyup.enter)="fetchRentals()" 
+        class="form-control"
+        placeholder="Enter Customer ID" 
+        required
+      />
+    </div>
+    
+    <!-- Rentals Table -->
+    <table class="table table-striped" *ngIf="showTable">
+      <thead>
+        <tr>
+          <th>Rental ID</th>
+          <th>DVD Title</th>
+          <th>Rental Date</th>
+          <th>Return Date</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let rental of rentals">
+          <td>{{ rental.rentalId }}</td>
+          <td>{{ rental.dvd?.title}}</td>
+          <td>{{ rental.rentalDate | date: 'short' }}</td>
+          <td>{{ rental.returnDate ? (rental.returnDate | date: 'short') : 'N/A' }}</td>
+          <td class="text-warning">{{ rental.status }}</td>
+          <td>
+            <button class="btn btn-success btn-sm" (click)="returnRental(rental.rentalId)">
+              Return
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>    
+</section>

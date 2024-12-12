@@ -20,6 +20,12 @@ import { NotificationsComponent } from './COMPONENTS/notifications/notifications
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { ProfileComponent } from './COMPONENTS/profile/profile.component';
+import { CustomerHomeComponent } from './COMPONENTS/customer-home/customer-home.component';
+import { ManageRentalComponent } from './COMPONENTS/Manager/manage-rental/manage-rental.component';
+import { PendingFilPipe } from './pipes/pending-fil.pipe';
+import { ManageReturnComponent } from './COMPONENTS/Manager/manage-return/manage-return.component';
+import { ManageReportComponent } from './COMPONENTS/Manager/manage-report/manage-report.component';
 
 
 
@@ -37,7 +43,13 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     RegisterComponent,
     NavbarComponent,
     ManageCustomerComponent,
-    NotificationsComponent
+    NotificationsComponent,
+    ProfileComponent,
+    CustomerHomeComponent,
+    ManageRentalComponent,
+    PendingFilPipe,
+    ManageReturnComponent,
+    ManageReportComponent
   ],
   imports: [
     BrowserModule,

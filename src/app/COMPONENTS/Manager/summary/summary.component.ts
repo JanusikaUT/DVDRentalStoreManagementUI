@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { DvdService } from '../../../SERVICES/dvd.service';
+import { Rental } from '../../../models/Rental';
+import { Customer } from '../../../models/Customer';
+import { Dvd } from '../../../models/dvd';
+import { CustomerService } from '../../../SERVICES/customer.service';
 
 @Component({
   selector: 'app-summary',
@@ -6,16 +11,39 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './summary.component.css'
 })
 export class SummaryComponent implements OnInit{
-  totalRentals = 0;
-  totalDvds = 0;
-  totalCustomers = 0;
+rental:Rental[]=[]
+customer:Customer[]=[]
+dvd:Dvd[]=[]
 
-  constructor() {}
+  constructor(private dvdservice:DvdService,private customerservice:CustomerService) {}
 
   ngOnInit() {
-    // Fetch data (e.g., from a service) and assign to these properties
-    this.totalRentals = 120; // Example data
-    this.totalDvds = 300; // Example data
-    this.totalCustomers = 80; // Example data
+   this.loadcustomercount()
+   this.loaddvdcount()
+   this.loadrentalcount()
   }
+
+  loadrentalcount() {
+    this.dvdservice.getallrental().subscribe(data=>{
+      this.rental=data
+      console.log(this.rental)
+    })
+  
+  }
+loadcustomercount() {
+ this.customerservice.getallusers().subscribe(data=>{
+  this.customer=data
+  console.log(this.customer)
+
+ })
+}
+
+loaddvdcount() {
+this.dvdservice.getDvds().subscribe(data=>{
+  this.dvd=data
+  console.log(this.dvd)
+
+})
+}
+
 }
