@@ -15,10 +15,11 @@
     transition: transform 0.3s;
   }
   .card-body{
-    color: #0a0a0a;
-  background-color: rgb(126, 125, 125);
+    color:#0D1B2A;
+  background-color:#B0B0B0;
   border-radius: 5px;
   }
+  
   .card:hover {
     transform: scale(1.05);
   }
@@ -35,14 +36,17 @@
 }       
 
 .filter button{
-  border-color: black;
-  color: brown;
+  border-color:#1E3A5F;
+  color: #FFFFFF;
   border-radius: 20px;
+  
 }
-
+.filter button:hover{
+  background-color: #0D1B2A;
+}
 /* Custom Styles */
 body {
-  background-color: rgb(29, 2, 2);
+  background-color: #0D1B2A;
   color: white;
 }
 .navbar {
@@ -58,17 +62,19 @@ body {
 
 .carousel-item {
   height: 100vh;
-  background-color: #350d12;
+  background-color: #040664;
   opacity: 0.9;
 }
 .carousel-caption {
+  width: 80%;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  font-family:cursive;
-  font-size: xx-large;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size:xx-large;
+  color:goldenrod;
 }
 .carousel-control-prev, .carousel-control-next {
   color: white;
@@ -90,10 +96,14 @@ body {
 } */
 
 .main{
-  background-color: #0a0106;
+  background-color: #1E3A5F;
   color: white;
 }
 
 .home{
-  background-color: #0a0106;
+  background-color: #1E3A5F;
+}
+
+footer{
+  background-color: #0D1B2A;
 }

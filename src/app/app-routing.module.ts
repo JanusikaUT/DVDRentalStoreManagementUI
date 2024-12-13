@@ -29,6 +29,7 @@ const routes: Routes = [
     canActivate: [AuthGuard], 
     children:[
       { path: 'customer-home', component: CustomerHomeComponent },
+      { path: 'dvds', component: DvdPageComponent },
 
     ]
   },

@@ -1,36 +1,40 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-black">
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1E3A5F;">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#"><img src="logo.png" alt="Logo" style="height: 40px;"></a>
+    <a class="navbar-brand" href="#"><img src="logo2.png" alt="Logo" style="height: 40px;"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link text-light" routerLink="/customer-home">Home</a>
+          <a class="nav-link text-light" >Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-light" (click)="browsedvd()">Browse DVDs</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" routerLink="/customer-dashboard/customer-home">Dashboard</a>
+        </li>
+        
       </ul>
     </div>
   </div>
 </nav>
 
 <!-- Dashboard -->
-<div class="container-fluid p-4 bg-dark text-light">
+<div class="container-fluid p-4" style="background-color:#ffffff; color:  #081e2e;">
   <div class="row">
     <!-- Sidebar -->
     <div class="col-md-3 mb-4">
-      <div class="card bg-black shadow-sm">
+      <div class="card" style="background-color: #1E3A5F; color: #FFFFFF;">
         <div class="card-header text-center border-0">
-          <h5 class="text-light">Customer Dashboard</h5>
+          <h5>Customer Dashboard</h5>
         </div>
         <div class="list-group">
-          <a href="#profileSection" class="list-group-item list-group-item-action bg-dark text-light">Profile</a>
-          <a href="#rentedMoviesSection" class="list-group-item list-group-item-action bg-dark text-light">Rented Movies</a>
-          <a href="#notificationsSection" class="list-group-item list-group-item-action bg-dark text-light">Overdue Notifications</a>
-          <a href="/logout" class="list-group-item list-group-item-action bg-dark text-danger">Logout</a>
+          <a href="#profileSection" class="list-group-item list-group-item-action" style="background-color: #2B4A6A; color: #FFFFFF;">Profile</a>
+          <a href="#rentedMoviesSection" class="list-group-item list-group-item-action" style="background-color: #2B4A6A; color: #FFFFFF;">Rented Movies</a>
+          <a href="#notificationsSection" class="list-group-item list-group-item-action" style="background-color: #2B4A6A; color: #FFFFFF;">Overdue Notifications</a>
+          <a href="/logout" class="list-group-item list-group-item-action" style="background-color: #2B4A6A; color: #FF4A4A;">Logout</a>
         </div>
       </div>
     </div>
@@ -39,25 +43,25 @@
     <div class="col-md-9">
       <!-- Profile Section -->
       <div id="profileSection" class="mb-4">
-        <div class="card bg-black shadow-sm">
+        <div class="card" style="background-color: #1E3A5F; color: #FFFFFF;">
           <div class="card-header border-0">
-            <h5 class="text-light">Edit Profile</h5>
+            <h5>Edit Profile</h5>
           </div>
           <div class="card-body">
             <form>
               <div class="mb-3">
-                <label for="name" class="form-label text-light">Name</label>
-                <input type="text" class="form-control bg-dark text-light" id="name" placeholder="Enter your name" required>
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" style="background-color: #2B4A6A; color: #FFFFFF;" id="name" placeholder="Enter your name" required>
               </div>
               <div class="mb-3">
-                <label for="email" class="form-label text-light">Email</label>
-                <input type="email" class="form-control bg-dark text-light" id="email" placeholder="Enter your email" required>
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" style="background-color: #2B4A6A; color: #FFFFFF;" id="email" placeholder="Enter your email" required>
               </div>
               <div class="mb-3">
-                <label for="phone" class="form-label text-light">Phone</label>
-                <input type="text" class="form-control bg-dark text-light" id="phone" placeholder="Enter your phone number">
+                <label for="phone" class="form-label">Phone</label>
+                <input type="text" class="form-control" style="background-color: #2B4A6A; color: #FFFFFF;" id="phone" placeholder="Enter your phone number">
               </div>
-              <button type="submit" class="btn btn-primary w-100">Update Profile</button>
+              <button type="submit" class="btn w-100" style="background-color: #4A90E2; color: #FFFFFF;">Update Profile</button>
             </form>
           </div>
         </div>
@@ -65,9 +69,9 @@
 
       <!-- Rented Movies Section -->
       <div id="rentedMoviesSection" class="mb-4">
-        <div class="card bg-black shadow-sm">
+        <div class="card" style="background-color: #1E3A5F; color: #FFFFFF;">
           <div class="card-header border-0">
-            <h5 class="text-light">Rented Movies</h5>
+            <h5>Rented Movies</h5>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -116,16 +120,16 @@
 
       <!-- Overdue Notifications Section -->
       <div id="notificationsSection" class="mb-4">
-        <div class="card bg-black shadow-sm">
+        <div class="card" style="background-color: #1E3A5F; color: #FFFFFF;">
           <div class="card-header border-0">
-            <h5 class="text-light">Overdue Notifications</h5>
+            <h5>Overdue Notifications</h5>
           </div>
           <div class="card-body">
-            <div *ngIf="overdueNotifications.length === 0" class="text-center text-light">
+            <div *ngIf="overdueNotifications.length === 0" class="text-center">
               No overdue movies.
             </div>
             <ul class="list-group">
-              <li *ngFor="let notification of overdueNotifications" class="list-group-item bg-dark text-warning">
+              <li *ngFor="let notification of overdueNotifications" class="list-group-item" style="background-color: #2B4A6A; color: #FFFF66;">
                 {{ notification }}
               </li>
               <!-- Dynamically add overdue notifications here -->

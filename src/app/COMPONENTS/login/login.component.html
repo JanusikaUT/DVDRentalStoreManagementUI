@@ -1,8 +1,8 @@
-<div class="d-flex justify-content-center align-items-center vh-100 bg-dark text-light">
+<div class="d-flex justify-content-center align-items-center vh-100 bg-dark text-light" style="background-color: #1E3A5F;">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-4 col-md-6 col-sm-8">
-        <div class="card bg-dark text-light border-0">
+        <div class="card border-0" style="background-color: #1E3A5F; color: #FFFFFF;">
           <div class="card-header text-center border-0 pb-0">
             <h2 class="fw-bold">Sign In</h2>
           </div>
@@ -11,7 +11,8 @@
               <div class="mb-4">
                 <input 
                   type="email" 
-                  class="form-control bg-secondary text-light border-secondary py-3" 
+                  class="form-control" 
+                  style="background-color: #2B4A6A; color: #FFFFFF; border-color: #4A90E2; padding: 15px;" 
                   id="email" 
                   [(ngModel)]="email" 
                   name="email" 
@@ -21,7 +22,8 @@
               <div class="mb-4">
                 <input 
                   type="password" 
-                  class="form-control bg-secondary text-light border-secondary py-3" 
+                  class="form-control" 
+                  style="background-color: #2B4A6A; color: #FFFFFF; border-color: #4A90E2; padding: 15px;" 
                   id="password" 
                   [(ngModel)]="password" 
                   name="password" 
@@ -30,7 +32,8 @@
               </div>
               <button 
                 type="submit" 
-                class="btn btn-danger w-100 py-2 fw-bold" 
+                class="btn w-100 py-2 fw-bold" 
+                style="background-color: #4A90E2; color: #FFFFFF;" 
                 [disabled]="!loginForm.form.valid">
                 Sign In
               </button>
@@ -38,14 +41,14 @@
             <div class="d-flex justify-content-between align-items-center mt-3">
               <div>
                 <input type="checkbox" id="rememberMe">
-                <label for="rememberMe" class="small text-secondary">Remember me</label>
+                <label for="rememberMe" class="small" style="color: #B0B0B0;">Remember me</label>
               </div>
-              <a href="#" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal" class="small text-secondary text-decoration-none">Forgot Password?</a>
+              <a href="#" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal" class="small text-decoration-none" style="color: #B0B0B0;">Forgot Password?</a>
             </div>
           </div>
           <div class="card-footer text-center border-0">
-            <small class="text-secondary">New to Netflix? 
-              <a routerLink="/register" class="text-danger text-decoration-none fw-bold">Sign up now</a>
+            <small style="color: #B0B0B0;">New to Netflix? 
+              <a routerLink="/register" class="text-decoration-none fw-bold" style="color: #4A90E2;">Sign up now</a>
             </small>
           </div>
         </div>
@@ -56,7 +59,7 @@
   <!-- Forgot Password Modal -->
   <div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-labelledby="forgotPasswordModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content bg-dark text-light">
+      <div class="modal-content" style="background-color: #1E3A5F; color: #FFFFFF;">
         <div class="modal-header border-0">
           <h5 class="modal-title" id="forgotPasswordModalLabel">Forgot Password</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -67,7 +70,8 @@
               <label for="forgotEmail" class="form-label">Enter your email address</label>
               <input 
                 type="email" 
-                class="form-control bg-secondary text-light border-secondary" 
+                class="form-control" 
+                style="background-color: #2B4A6A; color: #FFFFFF; border-color: #4A90E2;" 
                 id="forgotEmail" 
                 [(ngModel)]="forgotEmail" 
                 name="forgotEmail" 
@@ -76,7 +80,8 @@
             </div>
             <button 
               type="submit" 
-              class="btn btn-danger w-100 py-2" 
+              class="btn w-100 py-2" 
+              style="background-color: #4A90E2; color: #FFFFFF;" 
               [disabled]="!forgotPasswordForm.form.valid">
               Reset Password
             </button>

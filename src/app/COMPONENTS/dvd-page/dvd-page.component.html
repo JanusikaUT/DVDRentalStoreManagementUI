@@ -19,8 +19,56 @@
     </div>
   </div>
 </div> -->
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1E3A5F;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><img src="logo2.png" alt="Logo" style="height: 40px;"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link text-light" routerlink="/customer-dashboard/dvds">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" routerlink="/dvds">Browse DVDs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" routerLink="/customer-dashboard/customer-home">Dashboard</a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
 
-<div class="container mt-4">
+<div class="customerdvd" style="background-color: #0a1c2e;">
+<div class="filter d-flex justify-content-center align-items-center  py-3 rounded-0">
+  <!-- Static Genre Buttons -->
+  <button type="button" class="btn btn-outline-light me-2">
+    Comedy
+  </button>
+  <button type="button" class="btn btn-outline-light me-2">
+    Thrill
+  </button>
+  <button type="button" class="btn btn-outline-light me-2">
+    Horror
+  </button>
+
+  <!-- Dropdown Button -->
+  <div class="dropdown">
+    <button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton"
+      data-bs-toggle="dropdown" aria-expanded="false">
+      See More
+    </button>
+    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton">
+      <li><a class="dropdown-item" href="#">Action</a></li>
+      <li><a class="dropdown-item" href="#" >Drama</a></li>
+      <li><a class="dropdown-item" href="#" >Comedy</a></li>
+    </ul>
+  </div>
+</div>
+<!-- <div class="container mt-4">
   <h2>Available DVDs</h2>
   <div class="row">
     <div class="col-md-4" *ngFor="let dvd of dvds">
@@ -40,5 +88,34 @@
       </div>
     </div>
   </div>
+</div> -->
+<div class="container mt-4">
+  <h2  style="color: darkgoldenrod;">For Rent DVDs</h2>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let dvd of dvds">
+      <div class="card" style="background-color: #1E3A5F; border: 1px solid #4A90E2; border-radius: 8px; color: white;">
+        <img [src]="'http://localhost:5062' + dvd.imageUrl" alt="DVD Image" width="100%" height="300" style="object-fit: cover; border-radius: 8px 8px 0 0;"/>
+        <div class="card-body">
+          <h5 class="card-title">{{ dvd.title }}</h5>
+          <p class="card-text"><strong>Director:</strong> {{ dvd.director }}</p>
+          <p class="card-text"><strong>Genre:</strong> {{ dvd.genre }}</p>
+          <p class="card-text"><strong>Release Date:</strong> {{ dvd.releaseDate }}</p>
+          <p class="card-text"><strong>Price:</strong> ${{ dvd.price }}</p>
+          <p class="card-text"><strong>Copies Available:</strong> {{ dvd.copiesAvailable }}</p>
+
+          <!-- Rent Button (if logged in) -->
+          <button *ngIf="isLoggedIn && dvd.id !== undefined" class="btn btn-primary" (click)="rentDvd(dvd.id)" style="background-color: #4A90E2; border: none; transition: background-color 0.3s;">
+            Rent
+          </button>
+
+          <!-- Login Button (if not logged in) -->
+          <button *ngIf="!isLoggedIn" class="btn btn-secondary" disabled style="background-color: #333; border: none;">
+            Login to Rent
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 
