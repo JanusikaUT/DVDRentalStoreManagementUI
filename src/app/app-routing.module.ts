@@ -15,6 +15,7 @@ import { CustomerHomeComponent } from './COMPONENTS/customer-home/customer-home.
 import { ManageRentalComponent } from './COMPONENTS/Manager/manage-rental/manage-rental.component';
 import { ManageReturnComponent } from './COMPONENTS/Manager/manage-return/manage-return.component';
 import { ManageReportComponent } from './COMPONENTS/Manager/manage-report/manage-report.component';
+import { EditDvdComponent } from './COMPONENTS/Manager/edit-dvd/edit-dvd.component';
 
 const routes: Routes = [
   {path:'',component:LandingPageComponent},
@@ -28,24 +29,28 @@ const routes: Routes = [
     component: CustomerDashboardComponent,
     canActivate: [AuthGuard], 
     children:[
-      { path: 'customer-home', component: CustomerHomeComponent },
-      { path: 'dvds', component: DvdPageComponent },
+      {path:'',component:DvdPageComponent},      
+      { path: 'dashboard', component: CustomerDashboardComponent },
 
     ]
   },
+
   { 
     path: 'manager-dashboard',
     component: ManagerDashboardComponent,
     canActivate: [AuthGuard],
     children:[
+              {path:'',component:SummaryComponent},
               { path: 'home', component: SummaryComponent },
               { path: 'manage-dvd', component: ManageDvdComponent },
+              {path:'edit/:id',component:EditDvdComponent},
               { path: 'manage-customers', component: ManageCustomerComponent },
               { path: 'manager-rental', component: ManageRentalComponent },
               {path:'manager-return',component:ManageReturnComponent},
               { path: 'reports', component: ManageReportComponent },
     ]
   },
+  { path: '**', redirectTo: '/login' }, // Fallback for unknown routes
   // { path: 'logout', component: LogoutComponent },
 ];
 

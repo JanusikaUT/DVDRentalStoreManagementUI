@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {  Dvd, DvdService } from '../../../SERVICES/dvd.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class ManageDvdComponent implements OnInit{
 
 showadddvd: any;
 addDvdForm: FormGroup;
-  constructor(private dvdService: DvdService,private fb:FormBuilder,private toastr:ToastrService) {
+  constructor(private dvdService: DvdService,private fb:FormBuilder,private toastr:ToastrService,private router:Router) {
     this.addDvdForm = this.fb.group({
       title: ['', Validators.required],
       director: ['', Validators.required],
@@ -48,10 +49,8 @@ loaddvds(){
     this.showModal = true;
   }
 
-  editDvd(dvd: any) {
-    this.selectedDvd = { ...dvd }; // Clone DVD data
-    this.isEditMode = true; // Edit mode
-    this.showModal = true;
+  editDvd(dvdid:number) {
+   this.router.navigate(['/manager-dashboard/edit',dvdid])
   }
 
   deleteDvd(dvd: Dvd) {
@@ -65,20 +64,20 @@ loaddvds(){
 
  
 
-  saveDvd(dvd: any) {
-    if (this.isEditMode) {
-      this.dvdService.updateDvd(dvd.id, dvd).subscribe((updatedDvd) => {
-        const index = this.dvds.findIndex((item) => item.id === updatedDvd.id);
-        if (index > -1) this.dvds[index] = updatedDvd;
-        this.showModal = false;
-      });
-    } else {
-      this.dvdService.addDvd(dvd).subscribe((newDvd) => {
-        this.dvds.push();
-        this.showModal = false;
-      });
-    }
-  }
+  // saveDvd(dvd: any) {
+  //   if (this.isEditMode) {
+  //     this.dvdService.updateDvd(dvd.id, dvd).subscribe((updatedDvd) => {
+  //       const index = this.dvds.findIndex((item) => item.id === updatedDvd.id);
+  //       if (index > -1) this.dvds[index] = updatedDvd;
+  //       this.showModal = false;
+  //     });
+  //   } else {
+  //     this.dvdService.addDvd(dvd).subscribe((newDvd) => {
+  //       this.dvds.push();
+  //       this.showModal = false;
+  //     });
+  //   }
+  // }
 
   closemodal(){
     this.showModal=false;

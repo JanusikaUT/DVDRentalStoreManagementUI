@@ -29,12 +29,11 @@ export class LandingPageComponent {
 
   // Function to filter movies by genre
   handleFilter(genre: string): void {
-    if (genre === 'Free') {
-      this.filteredMovies = this.movies.filter(movie => movie.year === 2020);
+    
+    if (genre === 'All') {
+      this.filteredMovies = [...this.movies];
     } else {
-      // Filter based on genre
       this.filteredMovies = this.movies.filter(movie => movie.genre === genre);
-      
     }
   }
 }

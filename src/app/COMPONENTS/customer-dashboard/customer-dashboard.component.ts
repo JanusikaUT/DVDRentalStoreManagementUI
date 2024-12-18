@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrl: './customer-dashboard.component.css'
 })
 export class CustomerDashboardComponent implements OnInit {
-
+  showprofiles=false
 // Array to hold overdue notifications
 rentals:any[]=[]
 overdueNotifications: string[] = [
@@ -20,7 +20,9 @@ constructor(private dvdservice:DvdService,private router:Router){}
   ngOnInit(): void {
     this.getallrentals()
   }
-
+  toggleProfile() {
+    this.showprofiles = true;
+  }
 getallrentals(){
 this.dvdservice.getallrental().subscribe(data=>{
   this.rentals=data

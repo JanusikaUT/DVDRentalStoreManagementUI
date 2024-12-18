@@ -26,6 +26,7 @@ import { ManageRentalComponent } from './COMPONENTS/Manager/manage-rental/manage
 import { PendingFilPipe } from './pipes/pending-fil.pipe';
 import { ManageReturnComponent } from './COMPONENTS/Manager/manage-return/manage-return.component';
 import { ManageReportComponent } from './COMPONENTS/Manager/manage-report/manage-report.component';
+import { EditDvdComponent } from './COMPONENTS/Manager/edit-dvd/edit-dvd.component';
 
 
 
@@ -49,7 +50,8 @@ import { ManageReportComponent } from './COMPONENTS/Manager/manage-report/manage
     ManageRentalComponent,
     PendingFilPipe,
     ManageReturnComponent,
-    ManageReportComponent
+    ManageReportComponent,
+    EditDvdComponent
   ],
   imports: [
     BrowserModule,

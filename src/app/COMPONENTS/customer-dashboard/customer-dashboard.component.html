@@ -7,13 +7,13 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link text-light" >Home</a>
+          <a class="nav-link text-light" routerlink="home">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-light" (click)="browsedvd()">Browse DVDs</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light" routerLink="/customer-dashboard/customer-home">Dashboard</a>
+          <a class="nav-link text-light" routerLink="/customer-dashboard/dashboard">Dashboard</a>
         </li>
         
       </ul>
@@ -31,7 +31,7 @@
           <h5>Customer Dashboard</h5>
         </div>
         <div class="list-group">
-          <a href="#profileSection" class="list-group-item list-group-item-action" style="background-color: #2B4A6A; color: #FFFFFF;">Profile</a>
+          <a  class="list-group-item list-group-item-action" style="background-color: #2B4A6A; color: #FFFFFF;"  (click)="toggleProfile()">Profile</a>
           <a href="#rentedMoviesSection" class="list-group-item list-group-item-action" style="background-color: #2B4A6A; color: #FFFFFF;">Rented Movies</a>
           <a href="#notificationsSection" class="list-group-item list-group-item-action" style="background-color: #2B4A6A; color: #FFFFFF;">Overdue Notifications</a>
           <a href="/logout" class="list-group-item list-group-item-action" style="background-color: #2B4A6A; color: #FF4A4A;">Logout</a>
@@ -42,7 +42,7 @@
     <!-- Main Content -->
     <div class="col-md-9">
       <!-- Profile Section -->
-      <div id="profileSection" class="mb-4">
+      <div *ngIf="showprofiles" class="mb-4">
         <div class="card" style="background-color: #1E3A5F; color: #FFFFFF;">
           <div class="card-header border-0">
             <h5>Edit Profile</h5>

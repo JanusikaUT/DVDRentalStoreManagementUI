@@ -22,7 +22,6 @@ copiesAvailable: number;
 })
 export class DvdService {
 
- 
   private apiUrl = 'http://localhost:5062/api/DVDs';
 
   constructor(private http: HttpClient) {}
@@ -31,12 +30,16 @@ export class DvdService {
     return this.http.get<Dvd[]>('http://localhost:5062/api/Manager/GetAllDVDs');
   }
 
+  getsingledvd(id:number){
+    return this.http.get('http://localhost:5062/api/Manager/'+id)
+  }
+ 
+
   addDvd(dvd: FormData) {
     return this.http.post('http://localhost:5062/api/Manager/AddDVD', dvd);
   }
-
-  updateDvd(id: number, dvd: Dvd): Observable<Dvd> {
-    return this.http.put<Dvd>(`${this.apiUrl}/${id}`, dvd);
+  updateDvd(data: any) {
+    return this.http.patch(`http://localhost:5062/api/Manager/${data.id}`, data);
   }
 
   deleteDvd(id: number){

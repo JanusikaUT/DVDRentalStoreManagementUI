@@ -51,8 +51,12 @@ export class ManageCustomerComponent implements OnInit {
         });
     } else {
       // Add customer
-      this.customerService.addCustomer(this.customerForm.value).subscribe(customer => {
-        this.customers.push(customer); // Add new customer to the list
+      // this.customerService.addCustomer(this.customerForm.value).subscribe(customer => {
+      //   this.customers.push(customer); 
+      //   this.resetForm();
+      // });
+      this.customerService.addCustomer(this.customerForm.value).subscribe(() => {
+        this.fetchCustomers(); // Refresh customers
         this.resetForm();
       });
     }

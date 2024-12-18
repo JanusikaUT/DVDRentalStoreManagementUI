@@ -18,7 +18,7 @@
           <h1>J XStream Play Store</h1>
           <h1>Unlimited movies,TV shows, and more</h1>
           <p>Starts at RS 100.00. Rent anytime.</p>
-          <button class="btn btn-primary btn-lg">RENT DVDs</button>
+          <button class="btn btn-primary btn-lg" routerLink="/dvds">RENT DVDs</button>
         </div>
       </div>
     </div>
@@ -39,6 +39,9 @@
 
     <!-- Filter -->
     <div class="filter d-flex justify-content-center align-items-center  py-3 rounded-0">
+      <button type="button" class="btn btn-outline-light me-2" (click)="handleFilter('All')">
+        All
+      </button>
       <!-- Static Genre Buttons -->
       <button type="button" class="btn btn-outline-light me-2" (click)="handleFilter('Comedy')">
         Comedy

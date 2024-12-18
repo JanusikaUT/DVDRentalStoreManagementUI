@@ -28,13 +28,13 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link text-light" routerlink="/customer-dashboard/dvds">Home</a>
+          <a class="nav-link text-light" routerlink="/customer-dashboard/home">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-light" routerlink="/dvds">Browse DVDs</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light" routerLink="/customer-dashboard/customer-home">Dashboard</a>
+          <a class="nav-link text-light" routerLink="/customer-dashboard/dashboard">Dashboard</a>
         </li>
         
       </ul>
@@ -45,13 +45,16 @@
 <div class="customerdvd" style="background-color: #0a1c2e;">
 <div class="filter d-flex justify-content-center align-items-center  py-3 rounded-0">
   <!-- Static Genre Buttons -->
-  <button type="button" class="btn btn-outline-light me-2">
+  <button type="button" class="btn btn-outline-light me-2" (click)="handleFilter('All')">
+    All
+  </button>
+  <button type="button" class="btn btn-outline-light me-2" (click)="handleFilter('Comedy')">
     Comedy
   </button>
-  <button type="button" class="btn btn-outline-light me-2">
+  <button type="button" class="btn btn-outline-light me-2" (click)="handleFilter('Thrill')">
     Thrill
   </button>
-  <button type="button" class="btn btn-outline-light me-2">
+  <button type="button" class="btn btn-outline-light me-2" (click)="handleFilter('Horror')">
     Horror
   </button>
 
@@ -62,9 +65,9 @@
       See More
     </button>
     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton">
-      <li><a class="dropdown-item" href="#">Action</a></li>
-      <li><a class="dropdown-item" href="#" >Drama</a></li>
-      <li><a class="dropdown-item" href="#" >Comedy</a></li>
+      <li><a class="dropdown-item"  (click)="handleFilter('Action')">Action</a></li>
+      <li><a class="dropdown-item"  (click)="handleFilter('Drama')">Drama</a></li>
+      <li><a class="dropdown-item"  (click)="handleFilter('Comedy')" >Comedy</a></li>
     </ul>
   </div>
 </div>
@@ -92,7 +95,7 @@
 <div class="container mt-4">
   <h2  style="color: darkgoldenrod;">For Rent DVDs</h2>
   <div class="row">
-    <div class="col-md-4" *ngFor="let dvd of dvds">
+    <div class="col-md-4 mb-4" *ngFor="let dvd of filteredDvds">
       <div class="card" style="background-color: #1E3A5F; border: 1px solid #4A90E2; border-radius: 8px; color: white;">
         <img [src]="'http://localhost:5062' + dvd.imageUrl" alt="DVD Image" width="100%" height="300" style="object-fit: cover; border-radius: 8px 8px 0 0;"/>
         <div class="card-body">

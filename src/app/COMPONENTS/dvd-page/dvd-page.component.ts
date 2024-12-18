@@ -13,12 +13,13 @@ import { ToastrService } from 'ngx-toastr';
 
 export class DvdPageComponent implements OnInit{
   isLoggedIn: boolean = false;
-  dvds:Dvd[]=[]
+  dvds:Dvd[]=[];
+  filteredDvds: Dvd[] = [];
+  
  customerId = 0; 
-   // Hardcoded DVDs
-  
-    // Add more hardcoded DVDs here
-  
+
+ activeFilter: string = 'All'; // Track the active filter
+   
   
   constructor(
     private dvdService: DvdService,
@@ -28,11 +29,24 @@ export class DvdPageComponent implements OnInit{
     
   ) {}
 
+  // ngOnInit(): void {
+  //   this.isLoggedIn = this.authService.isLoggedIn();
+  //   this.loaddvds()
+  //   this.handleFilter(this.activeFilter); 
+
+  //   if (this.isLoggedIn) {
+  //     this.authService.handleLoginRedirect(); 
+  //   }
+  // }
   ngOnInit(): void {
     this.isLoggedIn = this.authService.isLoggedIn();
-    this.loaddvds()
+    if (!this.isLoggedIn) {
+      this.router.navigate(['/login']);  // Redirect to login if not logged in
+    } else {
+      this.loaddvds();
+      this.handleFilter(this.activeFilter); // Set initial filter
+    }
   }
-
 
 
 
@@ -72,8 +86,18 @@ export class DvdPageComponent implements OnInit{
   loaddvds() {
     this.dvdService.getDvds().subscribe(data=>{
         this.dvds=data
+        this.handleFilter(this.activeFilter); // Apply current filter
         console.log("Dvds: ",this.dvds)
+        
     })
   }
   
+  handleFilter(genre: string): void {
+    this.activeFilter = genre; // Update the active filte
+    if (genre === 'All') {
+      this.filteredDvds = [...this.dvds];
+    } else {
+      this.filteredDvds = this.dvds.filter(dvd => dvd.genre === genre);
+    }
+  }
 }
