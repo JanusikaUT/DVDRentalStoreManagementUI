@@ -3,20 +3,20 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.12.
 DVDRentalStoreManagementUI is a user interface application designed to manage and control operations of a DVD rental store. The application provides functionalities for renting, returning, and managing DVDs, as well as tracking inventory and customers.
 
-Features
+##Features
 Browse DVDs: View a catalog of available DVDs.
 Rent DVDs: Rent DVDs to customers and track rental duration.
 Return DVDs: Track returned DVDs and update inventory.
 Manage Inventory: Add, remove, and update DVD inventory.
 Customer Management: Maintain customer information and rental history.
 
-Prerequisites
+##Prerequisites
 To run this project locally, you need to have the following installed:
 
 .NET Framework (version details based on your project)
 A text editor/IDE (like Visual Studio or Visual Studio Code)
 
-Installation
+##Installation
 Clone this repository: git clone https://github.com/JanusikaUT/DVDRentalStoreManagementUI.git
 Navigate to the project folder: cd DVDRentalStoreManagementUI
 Open the project in your preferred IDE (e.g., Visual Studio).
