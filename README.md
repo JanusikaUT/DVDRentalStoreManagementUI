@@ -14,6 +14,7 @@ DVDRentalStoreManagementUI is a user interface application designed to manage an
 ## Prerequisites
 To run this project locally, you need to have the following installed:
 
+Angular
 .NET Framework (version details based on your project)
 A text editor/IDE (like Visual Studio or Visual Studio Code)
 ## Installation
